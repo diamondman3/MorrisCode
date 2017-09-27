@@ -16,15 +16,13 @@ public class CharInterpreter
         CHAR_U, CHAR_V, CHAR_W, CHAR_X, CHAR_Y, CHAR_Z, CHAR_0, CHAR_1, CHAR_2, CHAR_3, 
         CHAR_4, CHAR_5, CHAR_6, CHAR_7, CHAR_8, CHAR_9
     }
-    
-    CharList character;
-    
+
     public CharInterpreter()
     {
 
     }
     
-    public String enumToUnicode(){
+    public String enumToUnicode(CharList character){
         switch(character){
             case CHAR_A:
                 return "A";
@@ -139,7 +137,7 @@ public class CharInterpreter
         }
     }
     
-    public String enumToMorseCode(){
+    public String enumToMorseCode(CharList character){
         switch(character){
             case CHAR_A:
                 return ".-";

@@ -1,5 +1,7 @@
 package esolang;
 
+import static java.lang.Integer.parseInt;
+
 /**
  * Created by maxwelljm19 on 9/19/2017.
  */
@@ -111,9 +113,11 @@ public class DataStore {
 
     //Takes a byte and stores it at the pointer. Byte must be written in morse code.
     //Called by "IN (value)"
+    //Allows for overflows, but can only take 3 digits of input.
     public boolean inputValue(String input) {
         String[] uni = new String[3];
         int i = 0;
+        //split the input by character
         if (input.contains(" ")) {
             while (input.contains(" ") && i <= 2) {
                 uni[i] = input.substring(0, input.indexOf(" "));
@@ -121,15 +125,38 @@ public class DataStore {
                 i += 1;
             }
             if (input != "") {
-                System.out.println("-... -.-- - .     .. -. -.. . -..-     --- ..- -     --- ..-.     .-. .- -. --. .");
+                //Byte index out of range
+                System.out.println("-... -.-- - . .. -. -.. . -..- --- ..- - --- ..-. .-. .- -. --. .");
                 return false;
             }
         }
         else {
             uni[0] = input;
         }
-        for (int j=0; j<uni.length; j++){
+
+        int[] values=new int[3];
+        int inInt=0;
+
+        //convert inputted value from morse to an int
+        for (int j=uni.length; j>0; j--){
             uni[j]=interpreter.enumToUnicode(interpreter.morseCodeToEnum(uni[j]));
+            values[j]=parseInt(uni[j]);
+            inInt+=(values[j]*10^j);
         }
+        //Allows for overflows, I'm aware.
+        store[pointer]=(byte)inInt;
+        return true;
+    }
+
+    //Takes a byte at the pointer and prints it. Don't have morse for all chars, so will be in uni.
+    //Called by OUT
+    public void outputValue(){
+        System.out.println((char)store[pointer]);
+    }
+
+    //Echos an input in unicode.
+    //Called by CAT (input)
+    public void cat(String input){
+        System.out.println(input);
     }
 }
