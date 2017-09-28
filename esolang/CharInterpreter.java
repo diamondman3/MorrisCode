@@ -22,7 +22,7 @@ public class CharInterpreter
 
     }
     
-    public String enumToUnicode(CharList character){
+    public static String enumToUnicode(CharList character){
         switch(character){
             case CHAR_A:
                 return "A";
@@ -137,7 +137,7 @@ public class CharInterpreter
         }
     }
     
-    public String enumToMorseCode(CharList character){
+    public static String enumToMorseCode(CharList character){
         switch(character){
             case CHAR_A:
                 return ".-";
@@ -252,7 +252,7 @@ public class CharInterpreter
         }
     }
 
-    public CharList morseCodeToEnum(String input){
+    public static CharList morseCodeToEnum(String input){
         if(input.equals(".-")){
             return CharList.CHAR_A;
         }else if(input.equals("-...")){
@@ -365,7 +365,7 @@ public class CharInterpreter
         }
     }
 
-    public CharList unicodeToEnum(char input){
+    public static CharList unicodeToEnum(char input){
         String inString=input+"";
         inString=inString.toUpperCase();
         if(inString.equals("A") ){

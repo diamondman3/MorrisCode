@@ -1,25 +1,30 @@
 package esolang;
 
+import java.lang.reflect.Array;
+
 import static java.lang.Integer.parseInt;
 
 /**
  * Created by maxwelljm19 on 9/19/2017.
  */
 
-//TODO: Add input and output
 public class DataStore {
 
     public byte[] store;
     //all of the acutal data, length assigned at the constructor
-    public int pointer;
+    private int pointer;
     //location of data modified
-    public CharInterpreter interpreter;
-    //Probably a better way to do this.
+
+    //Arguments split with underscores, not spaces
 
     //Sets the length of the store. Will be called at the start of the program by morse for "MORRIS (length)"
     public DataStore(int bytes){
         store=new byte[bytes];
+        pointer=0;
     }
+
+    public int getPointer(){return pointer;}
+    public int getByteAtLoc(int byteNum){return store[byteNum];}
 
     //used to increase the value of the pointer by 1. Wraps to 0 if at the end.
     //Called by morse for "RIGHT"
@@ -45,37 +50,32 @@ public class DataStore {
 
     //Used to move the pointer to a specific location. Called by "JUMP (pointer location)"
     public void jumpPointer(int locationTo){
-        try{
-            pointer=locationTo;
+        if(store.length>locationTo) {
+            pointer = locationTo;
         }
-        //for when they inevitably see what happens
-        catch(ArrayIndexOutOfBoundsException e){
-            System.out.println(". - - -   . . -   - -   . - - .   . .   - .   - - .   -   - - -   - - -"+
-               ". . -   -   - - -   . . - .   - . . .   - - -   . . -   - .   - . .   . . .   . . . -   "+
-               ". -   . - . .   . . -   .  ");
+        else{
+            throw new ArrayIndexOutOfBoundsException(".--- ..- -- .--. .. -. --. - --- ---"+
+               "..- - --- ..-. -... --- ..- -. -.. ... ...- .- .-.. ..- .");
             //"jumping to out of bounds value"
         }
     }
 
     //Adds 1 to a byte at the location of pointer
     //Called by "UP"
-    public byte incrementByte(){
+    public void incrementByte(){
         store[pointer]+=1;
-        return store[pointer];
     }
 
     //Subtracts 1 from a byte at the location of pointer
     //Called by "DOWN"
-    public byte decrementByte(){
+    public void decrementByte(){
         store[pointer]-=1;
-        return store[pointer];
     }
 
     //Sets a byte to the number specified.
     //Called by "SET (number)"
-    public byte setByte(int input){
+    public void setByte(int input){
         store[pointer]=(byte)input;
-        return store[pointer];
     }
 
     //Takes 2 cells and operates on them, then sets the value pointed to to the sum.
@@ -139,7 +139,7 @@ public class DataStore {
 
         //convert inputted value from morse to an int
         for (int j=uni.length; j>0; j--){
-            uni[j]=interpreter.enumToUnicode(interpreter.morseCodeToEnum(uni[j]));
+            uni[j]=CharInterpreter.enumToUnicode(CharInterpreter.morseCodeToEnum(uni[j]));
             values[j]=parseInt(uni[j]);
             inInt+=(values[j]*10^j);
         }
