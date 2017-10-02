@@ -159,4 +159,9 @@ public class DataStore {
     public void cat(String input){
         System.out.println(input);
     }
+
+    //Loops through the following n times
+    //Called by LOOP (n)
+    //START
+    public void loop(){/*Actually in FileParser*/}
 }
