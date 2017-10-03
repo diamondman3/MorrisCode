@@ -92,6 +92,7 @@ public class FileParser {
                     throw new NullPointerException("-. --- ...- .- .-.. ..- . - --- ... . - - ---");
                     //NO VALUE TO SET TO
                 }
+                //todo: REDO THIS WITH THE DATASTORE COMMANDS
             } else if (baseCommand.equals("ADD")) {
                 if (args.length > 1) {
                     int val1 = store.getByteAtLoc(parseInt(args[0]));
