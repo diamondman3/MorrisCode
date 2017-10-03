@@ -151,7 +151,14 @@ public class DataStore {
     //Takes a byte at the pointer and prints it. Don't have morse for all chars, so will be in uni.
     //Called by OUT
     public void outputValue(){
-        System.out.println((char)store[pointer]);
+        int outInt;
+        if(store[pointer]<0){
+            outInt=(256+store[pointer]);
+        }
+        else {
+            outInt=(store[pointer]);
+        }
+        System.out.print((char)outInt);
     }
 
     //Echos an input in unicode.
