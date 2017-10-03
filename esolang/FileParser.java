@@ -12,7 +12,7 @@ import static java.lang.System.*;
 
 public class FileParser {
 
-    //What works: morris, right (while in bounds), up, down, out, cat
+    //What works: morris, right (while in bounds), up, down, out, cat, add, multiply
     File codeSource;
     Scanner reader;
     Scanner uInput;
