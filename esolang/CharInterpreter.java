@@ -22,7 +22,7 @@ public class CharInterpreter
 
     }
     
-    public static String enumToUnicode(CharList character){
+    public static String enumToAscii(CharList character){
         switch(character){
             case CHAR_A:
                 return "A";
@@ -354,10 +354,10 @@ public class CharInterpreter
         }else if(input.equals("--...")){
             return CharList.CHAR_7;
 
-        }else if(input.equals("----.")){
+        }else if(input.equals("---..")){
             return CharList.CHAR_8;
 
-        }else if(input.equals("---..")){
+        }else if(input.equals("----.")){
             return CharList.CHAR_9;
 
         }else{
@@ -365,10 +365,10 @@ public class CharInterpreter
         }
     }
 
-    public static CharList unicodeToEnum(char input){
+    public static CharList AsciiToEnum(char input){
         String inString=input+"";
         inString=inString.toUpperCase();
-        if(inString.equals("A") ){
+        if(inString.equals("A")){
             return CharList.CHAR_A;
         }else if(inString.equals("B")){
             return CharList.CHAR_B;
