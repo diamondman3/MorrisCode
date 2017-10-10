@@ -253,6 +253,7 @@ public class CharInterpreter
     }
 
     public static CharList morseCodeToEnum(String input){
+        System.out.print(input);
         if(input.equals(".-")){
             return CharList.CHAR_A;
         }else if(input.equals("-...")){

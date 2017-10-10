@@ -28,9 +28,7 @@ public class FileParser {
         this.codeSource=codeSource;
         try {
             reader = new Scanner(codeSource);
-        }catch (FileNotFoundException e){
-            System.out.println(e.getMessage());
-        }
+        }catch (Exception e){/*doing nothing is intentional*/}
         uInput=new Scanner(in);
     }
 
@@ -93,7 +91,6 @@ public class FileParser {
                     throw new NullPointerException("-. --- ...- .- .-.. ..- . - --- ... . - - ---");
                     //NO VALUE TO SET TO
                 }
-                //todo: REDO THIS WITH THE DATASTORE COMMANDS
             } else if (baseCommand.equals("ADD")) {
                 if (args.length > 1) {
                     int val1 = parseInt(args[0]);
@@ -143,7 +140,9 @@ public class FileParser {
                 }
             } else if (baseCommand.equals("IN")) {
                 out.println(".. -. .--. ..- - .- -... -.-- - .");//INPUTABYTE
-                store.inputValue(uInput.nextLine());
+                String toInput = uInput.nextLine();
+                System.out.print(toInput);
+                store.inputValue(toInput);
             } else if (baseCommand.equals("OUT")) {
                 store.outputValue();
             } else if (baseCommand.equals("CAT")) {
@@ -175,7 +174,7 @@ public class FileParser {
             }
         } else {
             //"Array not initialized"
-            throw new NullPointerException(".- .-. .-. .- -.-- -. --- - .. -. .. - .. .- .-.. .. --.. . -..");
+            throw new NullPointerException(".- .-. .-. .- / -.-- -. --- / - .. -. .. - .. .- .-.. .. --.. . -..");
         }
     }
     public void doCommand(String input) throws NullPointerException {
@@ -207,7 +206,6 @@ public class FileParser {
                     throw new NullPointerException("-. --- ...- .- .-.. ..- . - --- ... . - - ---");
                     //NO VALUE TO SET TO
                 }
-                //todo: REDO THIS WITH THE DATASTORE COMMANDS
             } else if (baseCommand.equals("ADD")) {
                 if (args.length > 1) {
                     int val1 = parseInt(args[0]);

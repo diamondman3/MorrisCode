@@ -3,6 +3,7 @@ package esolang;
 import java.lang.reflect.Array;
 
 import static java.lang.Integer.parseInt;
+import static java.lang.Integer.valueOf;
 
 /**
  * Created by maxwelljm19 on 9/19/2017.
@@ -115,16 +116,18 @@ public class DataStore {
     //Called by "IN (value)"
     //Allows for overflows, but can only take 3 digits of input.
     public boolean inputValue(String input) {
+        System.out.println(input);
+        String convertedInput = input;
         String[] uni = new String[3];
         int i = 0;
         //split the input by character
         if (input.contains(" ")) {
-            while (input.contains(" ") && i <= 2) {
-                uni[i] = input.substring(0, input.indexOf(" "));
-                input = input.substring(input.indexOf(" "));
+            while (convertedInput.contains(" ") && i <= 2) {
+                uni[i] = convertedInput.substring(0, input.indexOf(" "));
+                convertedInput= convertedInput.substring(input.indexOf(" "));
                 i += 1;
             }
-            if (input != "") {
+            if (!(input.equals(""))){
                 //Byte index out of range
                 System.out.println("-... -.-- - . .. -. -.. . -..- --- ..- - --- ..-. .-. .- -. --. .");
                 return false;
@@ -133,16 +136,20 @@ public class DataStore {
         else {
             uni[0] = input;
         }
-
         int[] values=new int[3];
         int inInt=0;
 
         //convert inputted value from morse to an int
-        for (int j=uni.length; j>0; j--){
-            uni[j-1]=CharInterpreter.enumToAscii(CharInterpreter.morseCodeToEnum(uni[j-1]));
-            values[j-1]=parseInt(uni[j-1]);
-            inInt+=(values[j-1]*10^(j-1));
+        for (int j=uni.length-1; j>=0; j--){
+            if(uni[j]==null){
+                values[j]=0;
+            }
+            else {
+                uni[j] = CharInterpreter.enumToAscii(CharInterpreter.morseCodeToEnum(uni[j]));
+                values[j] = parseInt(uni[j]);
+            }
         }
+        inInt=100*values[2]+10*values[1]+values[0];
         //Allows for overflows, I'm aware.
         store[pointer]=(byte)inInt;
         return true;

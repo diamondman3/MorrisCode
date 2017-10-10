@@ -28,8 +28,11 @@ public class UserInterface extends JFrame {
         fileChooser.setDialogTitle("-- --- .-. .-. .. ..._-.-. --- -.. .");
         int returnVal=fileChooser.showOpenDialog(browseButton);
         FileParser parser=new FileParser(fileChooser.getSelectedFile());
-        while(parser.getReader().hasNext()){
-            parser.doCommand();
-        }
+        try{
+                while(parser.getReader().hasNext()){
+                    parser.doCommand();
+                }
+            }
+        catch (NullPointerException e){/*nothing*/}
     }
 }
