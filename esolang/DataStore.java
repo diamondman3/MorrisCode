@@ -29,7 +29,7 @@ public class DataStore {
     //used to increase the value of the pointer by 1. Wraps to 0 if at the end.
     //Called by morse for "RIGHT"
     public void incrementPointer(){
-        if(pointer==store.length){
+        if(pointer==store.length-1){
             pointer=0;
         }
         else{
@@ -82,7 +82,7 @@ public class DataStore {
     //Called by "ADD (cell0) (cell1), SUBTRACT (cell0) (cell1), etc.
     public byte operateTwoCellsToPointer(int cell0, int cell1, char function){
         switch (function){
-            case 'p':
+            case 'a':
                 store[pointer]=(byte)(store[cell0]+store[cell1]);
                 break;
             case 's':
@@ -139,9 +139,9 @@ public class DataStore {
 
         //convert inputted value from morse to an int
         for (int j=uni.length; j>0; j--){
-            uni[j]=CharInterpreter.enumToUnicode(CharInterpreter.morseCodeToEnum(uni[j]));
-            values[j]=parseInt(uni[j]);
-            inInt+=(values[j]*10^j);
+            uni[j-1]=CharInterpreter.enumToAscii(CharInterpreter.morseCodeToEnum(uni[j-1]));
+            values[j-1]=parseInt(uni[j-1]);
+            inInt+=(values[j-1]*10^(j-1));
         }
         //Allows for overflows, I'm aware.
         store[pointer]=(byte)inInt;
@@ -161,7 +161,7 @@ public class DataStore {
         System.out.print((char)outInt);
     }
 
-    //Echos an input in unicode.
+    //Echos an input in Ascii.
     //Called by CAT (input)
     public void cat(String input){
         System.out.println(input);
