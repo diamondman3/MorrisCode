@@ -116,7 +116,6 @@ public class DataStore {
     //Called by "IN (value)"
     //Allows for overflows, but can only take 3 digits of input.
     public boolean inputValue(String input) {
-        System.out.println(input);
         String convertedInput = input;
         String[] uni = new String[3];
         int i = 0;

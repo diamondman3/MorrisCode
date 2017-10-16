@@ -12,8 +12,9 @@ import static java.lang.System.*;
 
 public class FileParser {
 
-    //What works: morris, right (while in bounds), left, up, down, out, cat, add, multiply, divide (integer), jump
-    //todo: What doesn't work: in, loop, start, stop, (presumably if)
+    //What works: morris, right (while in bounds), left, up, down, out, cat, add, multiply, divide (integer), jump, in
+    //todo: What doesn't work: loop, start, stop, (presumably if. make IF have greater than, less than, equal to)
+    //todo: add copy (copys current byte), paste (ctrl-v at current byte)
     File codeSource;
     Scanner reader;
     Scanner uInput;
@@ -141,7 +142,6 @@ public class FileParser {
             } else if (baseCommand.equals("IN")) {
                 out.println(".. -. .--. ..- - .- -... -.-- - .");//INPUTABYTE
                 String toInput = uInput.nextLine();
-                System.out.print(toInput);
                 store.inputValue(toInput);
             } else if (baseCommand.equals("OUT")) {
                 store.outputValue();
