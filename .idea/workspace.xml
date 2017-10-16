@@ -2,9 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2ec70007-5775-4302-8aaf-43131b9e52bf" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/esolang/CharInterpreter.java" afterPath="$PROJECT_DIR$/esolang/CharInterpreter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/esolang/DataStore.java" afterPath="$PROJECT_DIR$/esolang/DataStore.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/esolang/FileParser.java" afterPath="$PROJECT_DIR$/esolang/FileParser.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="MorrisCode.iws" />
@@ -37,11 +34,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DataStore.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="DataStore.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/esolang/DataStore.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-11.137931">
-              <caret line="165" column="9" selection-start-line="165" selection-start-column="9" selection-end-line="165" selection-end-column="9" />
+            <state vertical-scroll-proportion="0.33274022">
+              <caret line="130" column="101" selection-start-line="130" selection-start-column="36" selection-end-line="130" selection-end-column="101" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#5383#5384#0" expanded="true" />
@@ -51,11 +48,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FileParser.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="FileParser.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/esolang/FileParser.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.42348754">
-              <caret line="14" column="118" selection-start-line="14" selection-start-column="118" selection-end-line="14" selection-end-column="118" />
+            <state vertical-scroll-proportion="-12.310345">
+              <caret line="21" column="20" selection-start-line="21" selection-start-column="20" selection-end-line="21" selection-end-column="20" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#6715#6723#0" expanded="true" />
@@ -479,7 +476,13 @@
       <option name="project" value="LOCAL" />
       <updated>1508190211175</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="IN works.">
+      <created>1508190576540</created>
+      <option name="number" value="00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1508190576540</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TodoView" selected-index="2">
@@ -548,7 +551,8 @@
     <MESSAGE value="Tested more commands. Fixed error where 8 and 9's morses were switched." />
     <MESSAGE value="Worked on IN. Almost fixed," />
     <MESSAGE value="Repush" />
-    <option name="LAST_COMMIT_MESSAGE" value="Repush" />
+    <MESSAGE value="IN works." />
+    <option name="LAST_COMMIT_MESSAGE" value="IN works." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -955,18 +959,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/esolang/DataStore.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.137931">
-          <caret line="165" column="9" selection-start-line="165" selection-start-column="9" selection-end-line="165" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#5383#5384#0" expanded="true" />
-            <element signature="e#5424#5425#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/esolang/UserInterface.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -979,11 +971,23 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/esolang/FileParser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.42348754">
-          <caret line="14" column="118" selection-start-line="14" selection-start-column="118" selection-end-line="14" selection-end-column="118" />
+        <state vertical-scroll-proportion="-12.310345">
+          <caret line="21" column="20" selection-start-line="21" selection-start-column="20" selection-end-line="21" selection-end-column="20" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#6715#6723#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/esolang/DataStore.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33274022">
+          <caret line="130" column="101" selection-start-line="130" selection-start-column="36" selection-end-line="130" selection-end-column="101" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#5383#5384#0" expanded="true" />
+            <element signature="e#5424#5425#0" expanded="true" />
           </folding>
         </state>
       </provider>
