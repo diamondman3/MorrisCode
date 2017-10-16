@@ -1,7 +1,10 @@
 package esolang;
 
+import com.sun.org.apache.bcel.internal.verifier.structurals.ExceptionHandlers;
+
 import java.lang.reflect.Array;
 
+import static esolang.CharInterpreter.*;
 import static java.lang.Integer.parseInt;
 import static java.lang.Integer.valueOf;
 
@@ -103,6 +106,33 @@ public class DataStore {
         return store[pointer];
     }
 
+    //Takes a byte and stores it at the pointer. Byte must be written in morse code.
+    //Called by "IN (value)"
+    //Allows for overflows, but can only take 3 digits of input.
+    public boolean inputValue(String input) {
+        String[] inputAscii;
+        inputAscii=input.split(" ");
+        for(int i=0; i<inputAscii.length; i++){
+            inputAscii[i]=enumToAscii(morseCodeToEnum(inputAscii[i]));
+        }
+        int[] values=new int[inputAscii.length];
+        for(int i =0; i<inputAscii.length; i++){
+            try{
+                values[i]=parseInt(inputAscii[i]);
+            }
+            catch (Exception e){
+                return false;
+            }
+        }
+
+        String concatonateThisLittleBastard="";
+        for(int i=0; i<values.length; i++){
+            concatonateThisLittleBastard+=(values[i]+ "");
+        }
+        store[pointer]=(byte)parseInt(concatonateThisLittleBastard);
+        return true;
+    }
+
     //Takes a byte at the pointer and checks it against the given value.
     //Called by "IF (input) START", then ended with "STOP", or IF NOT (input) START.
     public boolean parseIf(int input, boolean callIfTrue){
@@ -112,50 +142,9 @@ public class DataStore {
         return false;
     }
 
-    //Takes a byte and stores it at the pointer. Byte must be written in morse code.
-    //Called by "IN (value)"
-    //Allows for overflows, but can only take 3 digits of input.
-    public boolean inputValue(String input) {
-        String convertedInput = input;
-        String[] uni = new String[3];
-        int i = 0;
-        //split the input by character
-        if (input.contains(" ")) {
-            while (convertedInput.contains(" ") && i <= 2) {
-                uni[i] = convertedInput.substring(0, input.indexOf(" "));
-                convertedInput= convertedInput.substring(input.indexOf(" "));
-                i += 1;
-            }
-            if (!(input.equals(""))){
-                //Byte index out of range
-                System.out.println("-... -.-- - . .. -. -.. . -..- --- ..- - --- ..-. .-. .- -. --. .");
-                return false;
-            }
-        }
-        else {
-            uni[0] = input;
-        }
-        int[] values=new int[3];
-        int inInt=0;
-
-        //convert inputted value from morse to an int
-        for (int j=uni.length-1; j>=0; j--){
-            if(uni[j]==null){
-                values[j]=0;
-            }
-            else {
-                uni[j] = CharInterpreter.enumToAscii(CharInterpreter.morseCodeToEnum(uni[j]));
-                values[j] = parseInt(uni[j]);
-            }
-        }
-        inInt=100*values[2]+10*values[1]+values[0];
-        //Allows for overflows, I'm aware.
-        store[pointer]=(byte)inInt;
-        return true;
-    }
-
     //Takes a byte at the pointer and prints it. Don't have morse for all chars, so will be in uni.
     //Called by OUT
+
     public void outputValue(){
         int outInt;
         if(store[pointer]<0){
