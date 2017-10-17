@@ -15,6 +15,8 @@ Command arg0 arg1 arg2...
 All text is written in Morse code, with a space separating characters and a slash separating words, as follows:
 - .... .. ... / .. ... / .- / -.-. --- -- -- .- -. -..
 
+Comments can be written in plain text so long as it does not include any of the following characters: . - /
+
 The current working commands are:
 
 MORRIS n: Initialize the tape with n cells. This must be performed at the start of the program.
