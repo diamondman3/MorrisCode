@@ -15,6 +15,7 @@ public class FileParser {
     //What works: morris, right, left, up, down, out, cat, add, multiply, divide (integer), jump, in, if
     //todo: What doesn't work: loop
     //todo: add copy (copys current byte), paste (ctrl-v at current byte)
+    //todo: Especially the commands for copy and paste in the source code
     File codeSource;
     Scanner reader;
     Scanner uInput;

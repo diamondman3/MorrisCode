@@ -14,6 +14,8 @@ import static java.lang.Integer.valueOf;
 
 public class DataStore {
 
+    private byte heldByte=0;
+    //Byte used for the COPY/PASTE commands.
     public byte[] store;
     //all of the acutal data, length assigned at the constructor
     private int pointer;
@@ -45,7 +47,7 @@ public class DataStore {
     //Called by morse for "LEFT"
     public void decrementPointer(){
         if(pointer==0){
-            pointer=store.length;
+            pointer=store.length-1;
         }
         else{
             pointer-=1;
@@ -162,8 +164,16 @@ public class DataStore {
         System.out.println(input);
     }
 
-    //Loops through the following n times
-    //Called by LOOP (n)
-    //START
-    public void loop(){/*Actually in FileParser*/}
+    //Takes the current byte and makes it heldByte. Does not change the byte at pointer.
+    public void copy(){
+        heldByte=store[pointer];
+        System.out.println("Copy");
+    }
+
+    //does the opposite of copy
+    public void paste(){
+        store[pointer]=heldByte;
+        System.out.println("Paste");
+    }
+
 }
