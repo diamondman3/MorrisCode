@@ -12,8 +12,8 @@ import static java.lang.System.*;
 
 public class FileParser {
 
-    //What works: morris, right (while in bounds), left, up, down, out, cat, add, multiply, divide (integer), jump, in
-    //todo: What doesn't work: loop, start, stop, (presumably if. make IF have greater than, less than, equal to)
+    //What works: morris, right, left, up, down, out, cat, add, multiply, divide (integer), jump, in, if
+    //todo: What doesn't work: loop
     //todo: add copy (copys current byte), paste (ctrl-v at current byte)
     File codeSource;
     Scanner reader;
@@ -133,24 +133,18 @@ public class FileParser {
                     //NOINPUT
                 }
             } else if (baseCommand.equals("IF")) {
-                if (args[0].equals("MORE")&&store.getByteAtLoc(store.getPointer()) <= parseInt(args[1])) {
-                    System.out.println("more pass");
+                if (args[0].substring(1).equals("MORE")&&store.getByteAtLoc(store.getPointer()) <= parseInt(args[1])) {
                     while(!readCommand()[0].equalsIgnoreCase("STOP")){
-                        System.out.println("not stop");
                         readCommand();
                     }
                 }
-                else if (args[0].equals("EQUALS")&&store.getByteAtLoc(store.getPointer()) != parseInt(args[1])) {
-                    System.out.println("eq pass");
+                else if (args[0].substring(1).equals("EQUALS")&&store.getByteAtLoc(store.getPointer()) != parseInt(args[1])) {
                     while(!readCommand()[0].equalsIgnoreCase("STOP")){
-                        System.out.println("not stop");
                         readCommand();
                     }
                 }
-                else if (args[0].equals("LESS")&&store.getByteAtLoc(store.getPointer()) >= parseInt(args[1])) {
-                    System.out.println("less pass");
+                else if (args[0].substring(1).equals("LESS")&&store.getByteAtLoc(store.getPointer()) >= parseInt(args[1])) {
                     while(!readCommand()[0].equalsIgnoreCase("STOP")){
-                        System.out.println("not stop");
                         readCommand();
                     }
                 }
