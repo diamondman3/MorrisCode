@@ -1,9 +1,3 @@
-------------------------------------------------------------------------
-This is the project README file. Here, you should describe your project.
-Tell the reader (someone who does not know anything about this project)
-all he/she needs to know. The comments should usually include at least:
-------------------------------------------------------------------------
-
 PROJECT TITLE: Morris Code
 PURPOSE OF PROJECT: Make me less bored in CS class. Also provide a useful* language for the old-fashioned.
 VERSION or DATE: Not quite complete yet as of Oct. 5 2017
@@ -14,6 +8,8 @@ USER INSTRUCTIONS: Morris Code is a tape-based, 1-dimensional programming langua
 Command arg0 arg1 arg2...
 All text is written in Morse code, with a space separating characters and a slash separating words, as follows:
 - .... .. ... / .. ... / .- / -.-. --- -- -- .- -. -..
+
+Comments can be written in plain text so long as it does not include any of the following characters: . - /
 
 The current working commands are:
 
@@ -30,3 +26,6 @@ MULTIPLY a b: Pop the values at cells a and b, multiply them, and push the produ
 DIVIDE a b: Pop the values at cells a and b, divide the value at a by the value at b, and push the quotient to the current cell. This is integer division.
 OUT: Prints the value at the pointer to the console in ASCII.
 CAT text: Takes the text (in morse code) and prints it to the console in ASCII.
+IN n: Takes a byte n (in morse code) from the console and sets the current cell to n.
+IF MORE/EQUALS/LESS n: If the current cell is more than/equals/is less than n, skip the code until the next STOP command.
+STOP: Ends an IF statement.
