@@ -133,11 +133,26 @@ public class FileParser {
                     //NOINPUT
                 }
             } else if (baseCommand.equals("IF")) {
-                if (store.getByteAtLoc(store.getPointer()) == parseInt(args[0])) {
-                    followStartCue = "SKIP";
-                    //TODO: If not this, skip the lines between START and STOP
-                } else {
-                    followStartCue = "CONTINUE";
+                if (args[0].equals("MORE")&&store.getByteAtLoc(store.getPointer()) <= parseInt(args[1])) {
+                    System.out.println("more pass");
+                    while(!readCommand()[0].equalsIgnoreCase("STOP")){
+                        System.out.println("not stop");
+                        readCommand();
+                    }
+                }
+                else if (args[0].equals("EQUALS")&&store.getByteAtLoc(store.getPointer()) != parseInt(args[1])) {
+                    System.out.println("eq pass");
+                    while(!readCommand()[0].equalsIgnoreCase("STOP")){
+                        System.out.println("not stop");
+                        readCommand();
+                    }
+                }
+                else if (args[0].equals("LESS")&&store.getByteAtLoc(store.getPointer()) >= parseInt(args[1])) {
+                    System.out.println("less pass");
+                    while(!readCommand()[0].equalsIgnoreCase("STOP")){
+                        System.out.println("not stop");
+                        readCommand();
+                    }
                 }
             } else if (baseCommand.equals("IN")) {
                 out.println(".. -. .--. ..- - .- -... -.-- - .");//INPUTABYTE
