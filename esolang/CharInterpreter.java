@@ -365,7 +365,7 @@ public class CharInterpreter
         }
     }
 
-    public static CharList AsciiToEnum(char input){
+    public static CharList asciiToEnum(char input){
         String inString=input+"";
         inString=inString.toUpperCase();
         if(inString.equals("A")){

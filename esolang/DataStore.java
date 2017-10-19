@@ -167,13 +167,11 @@ public class DataStore {
     //Takes the current byte and makes it heldByte. Does not change the byte at pointer.
     public void copy(){
         heldByte=store[pointer];
-        System.out.println("Copy");
     }
 
     //does the opposite of copy
     public void paste(){
         store[pointer]=heldByte;
-        System.out.println("Paste");
     }
 
 }

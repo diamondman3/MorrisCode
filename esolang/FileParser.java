@@ -9,13 +9,12 @@ import java.util.Scanner;
 
 import static java.lang.Integer.parseInt;
 import static java.lang.System.*;
+import static esolang.CharInterpreter.*;
 
 public class FileParser {
 
-    //What works: morris, right, left, up, down, out, cat, add, multiply, divide (integer), jump, in, if
-    //todo: What doesn't work: loop
-    //todo: add copy (copys current byte), paste (ctrl-v at current byte)
-    //todo: Especially the commands for copy and paste in the source code
+    //What works: morris, right, left, up, down, out, cat, add, multiply, divide (integer), jump, in, if, copy, paste
+    //todo: What doesn't work: loop, pointer (prints pointer number)
     File codeSource;
     Scanner reader;
     Scanner uInput;
@@ -98,18 +97,16 @@ public class FileParser {
                     int val1 = parseInt(args[0]);
                     int val2 = parseInt(args[1]);
                     store.operateTwoCellsToPointer(val1, val2, 'a');
-                }
-                else {
+                } else {
                     throw new NullPointerException("-. --- .. -. .--. ..- -");
-                //NOINPUT
+                    //NOINPUT
                 }
             } else if (baseCommand.equals("SUBTRACT")) {
                 if (args.length > 1) {
                     int val1 = parseInt(args[0]);
                     int val2 = parseInt(args[1]);
                     store.operateTwoCellsToPointer(val1, val2, 's');
-                }
-                else {
+                } else {
                     throw new NullPointerException("-. --- .. -. .--. ..- -");
                     //NOINPUT
                 }
@@ -118,8 +115,7 @@ public class FileParser {
                     int val1 = parseInt(args[0]);
                     int val2 = parseInt(args[1]);
                     store.operateTwoCellsToPointer(val1, val2, 'm');
-                }
-                else {
+                } else {
                     throw new NullPointerException("-. --- .. -. .--. ..- -");
                     //NOINPUT
                 }
@@ -128,24 +124,21 @@ public class FileParser {
                     int val1 = parseInt(args[0]);
                     int val2 = parseInt(args[1]);
                     store.operateTwoCellsToPointer(val1, val2, 'd');
-                }
-                else {
+                } else {
                     throw new NullPointerException("-. --- .. -. .--. ..- -");
                     //NOINPUT
                 }
             } else if (baseCommand.equals("IF")) {
-                if (args[0].substring(1).equals("MORE")&&store.getByteAtLoc(store.getPointer()) <= parseInt(args[1])) {
-                    while(!readCommand()[0].equalsIgnoreCase("STOP")){
+                if (args[0].substring(1).equals("MORE") && store.getByteAtLoc(store.getPointer()) <= parseInt(args[1])) {
+                    while (!readCommand()[0].equalsIgnoreCase("STOP")) {
                         readCommand();
                     }
-                }
-                else if (args[0].substring(1).equals("EQUALS")&&store.getByteAtLoc(store.getPointer()) != parseInt(args[1])) {
-                    while(!readCommand()[0].equalsIgnoreCase("STOP")){
+                } else if (args[0].substring(1).equals("EQUALS") && store.getByteAtLoc(store.getPointer()) != parseInt(args[1])) {
+                    while (!readCommand()[0].equalsIgnoreCase("STOP")) {
                         readCommand();
                     }
-                }
-                else if (args[0].substring(1).equals("LESS")&&store.getByteAtLoc(store.getPointer()) >= parseInt(args[1])) {
-                    while(!readCommand()[0].equalsIgnoreCase("STOP")){
+                } else if (args[0].substring(1).equals("LESS") && store.getByteAtLoc(store.getPointer()) >= parseInt(args[1])) {
+                    while (!readCommand()[0].equalsIgnoreCase("STOP")) {
                         readCommand();
                     }
                 }
@@ -157,30 +150,13 @@ public class FileParser {
                 store.outputValue();
             } else if (baseCommand.equals("CAT")) {
                 store.cat(Arrays.toString(args));
-            } else if (baseCommand.equals("LOOP")) {
+            }else if (baseCommand.equals("COPY")) {
+                store.copy();
+            }else if (baseCommand.equals("PASTE")){
+                store.paste();
+            }else if (baseCommand.equals("LOOP")) {
                 followStartCue = "LOOP" + args;
-            } else if (baseCommand.equals("START")) {
-                started = true;
-                if (followStartCue.equals("SKIP")) {
-                    //Likely source of errors
-                    //idk if this skips a line every time or what
-                    while (!readCommand()[0].equals("STOP")) {
-                        reader.nextLine();
-                    }
-                } else if (followStartCue.startsWith("LOOP")) {
-                    int loopIterations = parseInt(followStartCue.substring("LOOP ".length()));
-                    List<String> linesToLoopThrough = new ArrayList<String>();
-                    while (!readCommand()[0].equals("STOP")) {
-                        linesToLoopThrough.add(reader.nextLine());
-                    }
-                    do {
-                        for (int i = 0; i < linesToLoopThrough.size(); i++) {
-                            doCommand(linesToLoopThrough.get(i));
-                        }
-                        loopIterations -= 1;
-                    }
-                    while (loopIterations > 0);
-                }
+            }else if (baseCommand.equals("POINTER")){
             }
         } else {
             //"Array not initialized"
@@ -270,8 +246,6 @@ public class FileParser {
                 store.outputValue();
             } else if (baseCommand.equals("CAT")) {
                 store.cat(Arrays.toString(args));
-            } else if (baseCommand.equals("LOOP")) {
-                followStartCue = "LOOP" + args;
             }
         } else {
             //"Array not initialized"
