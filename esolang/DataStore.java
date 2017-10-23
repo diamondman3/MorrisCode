@@ -1,7 +1,5 @@
 package esolang;
 
-import com.sun.org.apache.bcel.internal.verifier.structurals.ExceptionHandlers;
-
 import java.lang.reflect.Array;
 
 import static esolang.CharInterpreter.*;
@@ -161,6 +159,14 @@ public class DataStore {
     //Echos an input in Ascii.
     //Called by CAT (input)
     public void cat(String input){
+        //all this is to make sure it only outputs the text
+        while(input.contains("[0")){
+            input=input.substring(0, input.indexOf("[0"))+ input.substring(input.indexOf("[0") + 2);
+        }
+        while(input.contains(", 0")){
+            input=input.substring(0, input.indexOf(", 0"))+ " " + input.substring(input.indexOf(", 0") + 3);
+        }
+        input=input.substring(0, input.length()-1);
         System.out.println(input);
     }
 
@@ -172,6 +178,16 @@ public class DataStore {
     //does the opposite of copy
     public void paste(){
         store[pointer]=heldByte;
+    }
+
+    //prints the location of the pointer
+    public void showPointer(){
+        System.out.print(this.pointer);
+    }
+
+    //prints the output as an integer
+    public void outInt(){
+        System.out.print(store[pointer]);
     }
 
 }

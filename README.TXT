@@ -1,6 +1,6 @@
 PROJECT TITLE: Morris Code
 PURPOSE OF PROJECT: Make me less bored in CS class. Also provide a useful* language for the old-fashioned.
-VERSION or DATE: Not quite complete yet as of Oct. 5 2017
+VERSION or DATE: Not quite complete yet as of Oct. 22, 2017
 HOW TO START THIS PROJECT: Open the file and select a piece of code (in .txt format) to run.
 AUTHORS: diamondman3
 USER INSTRUCTIONS: Morris Code is a tape-based, 1-dimensional programming language similar to Brainfuck. Commands are each written on one line, with the arguments following them as follows:
@@ -25,7 +25,11 @@ SUBTRACT a b: Pop the values at cells a and b, subtract the value at b from the 
 MULTIPLY a b: Pop the values at cells a and b, multiply them, and push the product to the current cell.
 DIVIDE a b: Pop the values at cells a and b, divide the value at a by the value at b, and push the quotient to the current cell. This is integer division.
 OUT: Prints the value at the pointer to the console in ASCII.
+OUTINT: Prints the value at the pointer to the console in decimal.
+POINTER: Prints the index of the cell which the pointer is at.
 CAT text: Takes the text (in morse code) and prints it to the console in ASCII.
 IN n: Takes a byte n (in morse code) from the console and sets the current cell to n.
-IF MORE/EQUALS/LESS n: If the current cell is more than/equals/is less than n, skip the code until the next STOP command.
+IF MORE/EQUALS/LESS n: If the current cell is more than/equals/is less than n, execute the code until the next STOP command.
 STOP: Ends an IF statement.
+COPY: Stores the data at the current cell.
+PASTE: Takes COPIED data and pushes it to the current cell. Initialized at 0.

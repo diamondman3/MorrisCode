@@ -13,8 +13,9 @@ import static esolang.CharInterpreter.*;
 
 public class FileParser {
 
-    //What works: morris, right, left, up, down, out, cat, add, multiply, divide (integer), jump, in, if, copy, paste
-    //todo: What doesn't work: loop, pointer (prints pointer number)
+    //What works: morris, right, left, up, down, out, cat, add, multiply, divide (integer), jump, in, if, copy, paste,
+    // pointer, outint
+    //todo: What doesn't work: loop
     File codeSource;
     Scanner reader;
     Scanner uInput;
@@ -157,99 +158,101 @@ public class FileParser {
             }else if (baseCommand.equals("LOOP")) {
                 followStartCue = "LOOP" + args;
             }else if (baseCommand.equals("POINTER")){
-            }
+                store.showPointer();
+            }else if (baseCommand.equals("OUTINT"))
+                store.outInt();
         } else {
             //"Array not initialized"
             throw new NullPointerException(".- .-. .-. .- / -.-- -. --- / - .. -. .. - .. .- .-.. .. --.. . -..");
         }
     }
-    public void doCommand(String input) throws NullPointerException {
-        //Would be too complicated to allow Start/Stop commands
-        String[] command=readCommand();
-        //takes the inputted command and splits into the command and the arguments
-        String baseCommand=command[0];
-        String [] args= new String[command.length-1];
-        arraycopy(command, 1, args, 0, command.length - 1);
-        if(baseCommand.equals("MORRIS")){
-            store=new DataStore(parseInt(args[0]));
-            initialized=true;
-        }
-        else if (initialized) {
-            if (baseCommand.equals("RIGHT")) {
-                store.incrementPointer();
-            } else if (baseCommand.equals("LEFT")) {
-                store.decrementPointer();
-            } else if (baseCommand.equals("JUMP")) {
-                store.jumpPointer(parseInt(args[0]));
-            } else if (baseCommand.equals("UP")) {
-                store.incrementByte();
-            } else if (baseCommand.equals("DOWN")) {
-                store.decrementByte();
-            } else if (baseCommand.equals("SET")) {
-                if (args.length > 0) {
-                    store.setByte(parseInt(args[0]));
-                } else {
-                    throw new NullPointerException("-. --- ...- .- .-.. ..- . - --- ... . - - ---");
-                    //NO VALUE TO SET TO
-                }
-            } else if (baseCommand.equals("ADD")) {
-                if (args.length > 1) {
-                    int val1 = parseInt(args[0]);
-                    int val2 = parseInt(args[1]);
-                    store.operateTwoCellsToPointer(val1, val2, 'a');
-                }
-                else {
-                    throw new NullPointerException("-. --- .. -. .--. ..- -");
-                    //NOINPUT
-                }
-            } else if (baseCommand.equals("SUBTRACT")) {
-                if (args.length > 1) {
-                    int val1 = parseInt(args[0]);
-                    int val2 = parseInt(args[1]);
-                    store.operateTwoCellsToPointer(val1, val2, 's');
-                }
-                else {
-                    throw new NullPointerException("-. --- .. -. .--. ..- -");
-                    //NOINPUT
-                }
-            } else if (baseCommand.equals("MULTIPLY")) {
-                if (args.length > 1) {
-                    int val1 = parseInt(args[0]);
-                    int val2 = parseInt(args[1]);
-                    store.operateTwoCellsToPointer(val1, val2, 'm');
-                }
-                else {
-                    throw new NullPointerException("-. --- .. -. .--. ..- -");
-                    //NOINPUT
-                }
-            } else if (baseCommand.equals("DIVIDE")) {
-                if (args.length > 1) {
-                    int val1 = parseInt(args[0]);
-                    int val2 = parseInt(args[1]);
-                    store.operateTwoCellsToPointer(val1, val2, 'd');
-                }
-                else {
-                    throw new NullPointerException("-. --- .. -. .--. ..- -");
-                    //NOINPUT
-                }
-            } else if (baseCommand.equals("IF")) {
-                if (store.getByteAtLoc(store.getPointer()) == parseInt(args[0])) {
-                    followStartCue = "SKIP";
-                    //TODO: If not this, skip the lines between START and STOP
-                } else {
-                    followStartCue = "CONTINUE";
-                }
-            } else if (baseCommand.equals("IN")) {
-                out.println(".. -. .--. ..- - .- -... -.-- - .");//INPUTABYTE
-                store.inputValue(uInput.nextLine());
-            } else if (baseCommand.equals("OUT")) {
-                store.outputValue();
-            } else if (baseCommand.equals("CAT")) {
-                store.cat(Arrays.toString(args));
-            }
-        } else {
-            //"Array not initialized"
-            throw new NullPointerException(".- .-. .-. .- -.-- -. --- - .. -. .. - .. .- .-.. .. --.. . -..");
-        }
-    }
+//    public void doCommand(String input) throws NullPointerException {
+//        //Would be too complicated to allow Start/Stop commands
+//        String[] command=readCommand();
+//        //takes the inputted command and splits into the command and the arguments
+//        String baseCommand=command[0];
+//        String [] args= new String[command.length-1];
+//        arraycopy(command, 1, args, 0, command.length - 1);
+//        if(baseCommand.equals("MORRIS")){
+//            store=new DataStore(parseInt(args[0]));
+//            initialized=true;
+//        }
+//        else if (initialized) {
+//            if (baseCommand.equals("RIGHT")) {
+//                store.incrementPointer();
+//            } else if (baseCommand.equals("LEFT")) {
+//                store.decrementPointer();
+//            } else if (baseCommand.equals("JUMP")) {
+//                store.jumpPointer(parseInt(args[0]));
+//            } else if (baseCommand.equals("UP")) {
+//                store.incrementByte();
+//            } else if (baseCommand.equals("DOWN")) {
+//                store.decrementByte();
+//            } else if (baseCommand.equals("SET")) {
+//                if (args.length > 0) {
+//                    store.setByte(parseInt(args[0]));
+//                } else {
+//                    throw new NullPointerException("-. --- ...- .- .-.. ..- . - --- ... . - - ---");
+//                    //NO VALUE TO SET TO
+//                }
+//            } else if (baseCommand.equals("ADD")) {
+//                if (args.length > 1) {
+//                    int val1 = parseInt(args[0]);
+//                    int val2 = parseInt(args[1]);
+//                    store.operateTwoCellsToPointer(val1, val2, 'a');
+//                }
+//                else {
+//                    throw new NullPointerException("-. --- .. -. .--. ..- -");
+//                    //NOINPUT
+//                }
+//            } else if (baseCommand.equals("SUBTRACT")) {
+//                if (args.length > 1) {
+//                    int val1 = parseInt(args[0]);
+//                    int val2 = parseInt(args[1]);
+//                    store.operateTwoCellsToPointer(val1, val2, 's');
+//                }
+//                else {
+//                    throw new NullPointerException("-. --- .. -. .--. ..- -");
+//                    //NOINPUT
+//                }
+//            } else if (baseCommand.equals("MULTIPLY")) {
+//                if (args.length > 1) {
+//                    int val1 = parseInt(args[0]);
+//                    int val2 = parseInt(args[1]);
+//                    store.operateTwoCellsToPointer(val1, val2, 'm');
+//                }
+//                else {
+//                    throw new NullPointerException("-. --- .. -. .--. ..- -");
+//                    //NOINPUT
+//                }
+//            } else if (baseCommand.equals("DIVIDE")) {
+//                if (args.length > 1) {
+//                    int val1 = parseInt(args[0]);
+//                    int val2 = parseInt(args[1]);
+//                    store.operateTwoCellsToPointer(val1, val2, 'd');
+//                }
+//                else {
+//                    throw new NullPointerException("-. --- .. -. .--. ..- -");
+//                    //NOINPUT
+//                }
+//            } else if (baseCommand.equals("IF")) {
+//                if (store.getByteAtLoc(store.getPointer()) == parseInt(args[0])) {
+//                    followStartCue = "SKIP";
+//                    //TODO: If not this, skip the lines between START and STOP
+//                } else {
+//                    followStartCue = "CONTINUE";
+//                }
+//            } else if (baseCommand.equals("IN")) {
+//                out.println(".. -. .--. ..- - .- -... -.-- - .");//INPUTABYTE
+//                store.inputValue(uInput.nextLine());
+//            } else if (baseCommand.equals("OUT")) {
+//                store.outputValue();
+//            } else if (baseCommand.equals("CAT")) {
+//                store.cat(Arrays.toString(args));
+//            }
+//        } else {
+//            //"Array not initialized"
+//            throw new NullPointerException(".- .-. .-. .- -.-- -. --- - .. -. .. - .. .- .-.. .. --.. . -..");
+//        }
+//    }
 }
