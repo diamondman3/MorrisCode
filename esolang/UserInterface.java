@@ -4,30 +4,28 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.beans.PropertyChangeListener;
+import java.io.File;
 
 /**
  * Created by maxwelljm19 on 9/28/2017.
  */
 public class UserInterface extends JFrame {
 
-    private static JButton browseButton;
+    public FileParser parser;
+    JFileChooser fileChooser;
     public UserInterface(){
         setSize(new Dimension(512, 128));
         setTitle("-- --- .-. .-. .. ..._-.-. --- -.. .");
         setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        browseButton=new JButton("-... .-. --- .-- ... .");
     }
 
-    public static void main(String[] args) {
-        UserInterface ui = new UserInterface();
-        ui.setVisible(true);
-
-        ui.dispose();
-        JFileChooser fileChooser=new JFileChooser();
+    public void setupUI() {
+        setVisible(true);
+        //remove the jFrame
+        fileChooser=new JFileChooser();
         fileChooser.setDialogTitle("-- --- .-. .-. .. ..._-.-. --- -.. .");
-        int returnVal=fileChooser.showOpenDialog(browseButton);
-        FileParser parser=new FileParser(fileChooser.getSelectedFile());
+        makeParser();
         try{
                 while(parser.getReader().hasNext()){
                     parser.doCommand();
@@ -35,4 +33,12 @@ public class UserInterface extends JFrame {
             }
         catch (NullPointerException e){/*nothing*/}
     }
+
+    public void makeParser(){
+        parser=new FileParser(fileChooser.getSelectedFile());
+    }
+    public File getParser(){
+        return getParser();
+    }
+
 }

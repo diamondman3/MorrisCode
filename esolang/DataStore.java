@@ -171,14 +171,10 @@ public class DataStore {
     }
 
     //Takes the current byte and makes it heldByte. Does not change the byte at pointer.
-    public void copy(){
-        heldByte=store[pointer];
-    }
+    public void copy(){heldByte=store[pointer];}
 
     //does the opposite of copy
-    public void paste(){
-        store[pointer]=heldByte;
-    }
+    public void paste(){store[pointer]=heldByte;}
 
     //prints the location of the pointer
     public void showPointer(){
@@ -190,4 +186,8 @@ public class DataStore {
         System.out.print(store[pointer]);
     }
 
+    //executes the code, skips to the line with the "loop" command the number of times in the cell pointed to when called
+    public void loop(int loopsTotal){
+
+    }
 }

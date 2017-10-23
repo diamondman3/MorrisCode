@@ -24,7 +24,6 @@ public class FileParser {
     private boolean initialized;
 
     boolean started;//if START is used.
-    private String followStartCue="CONTINUE";
     //initialized means that they called MORRIS and the array exists
     public FileParser(File codeSource){
         this.codeSource=codeSource;
@@ -143,6 +142,22 @@ public class FileParser {
                         readCommand();
                     }
                 }
+            }else if (baseCommand.equals("LOOP")){
+                int loopTimes=store.getByteAtLoc(store.getPointer());
+                String startingLine="";
+                FileParser loopParser=new FileParser(codeSource);
+                for(int i = 0; i<command.length; i++){
+                    startingLine=startingLine+command[0];
+                }
+                while(loopTimes>0){
+                    while (!loopParser.readCommand().equals(startingLine)){
+                        loopParser.readCommand();
+                    }
+                    while(!loopParser.readCommand()[0].equalsIgnoreCase("STOP")){
+                        loopParser.doCommand();
+                    }
+                    loopTimes--;
+                }
             } else if (baseCommand.equals("IN")) {
                 out.println(".. -. .--. ..- - .- -... -.-- - .");//INPUTABYTE
                 String toInput = uInput.nextLine();
@@ -155,8 +170,6 @@ public class FileParser {
                 store.copy();
             }else if (baseCommand.equals("PASTE")){
                 store.paste();
-            }else if (baseCommand.equals("LOOP")) {
-                followStartCue = "LOOP" + args;
             }else if (baseCommand.equals("POINTER")){
                 store.showPointer();
             }else if (baseCommand.equals("OUTINT"))
