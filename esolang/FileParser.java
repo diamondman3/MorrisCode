@@ -1,6 +1,4 @@
-package esolang; /**
- * Created by maxwelljm19 on 9/19/2017.
- */
+package esolang;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
