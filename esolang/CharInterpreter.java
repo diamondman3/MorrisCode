@@ -44,7 +44,12 @@ public class CharInterpreter {
         CHAR_6("6", "-...."),
         CHAR_7("7", "--..."),
         CHAR_8("8", "---.."),
-        CHAR_9("9", "----.");
+        CHAR_9("9", "----."),
+        CHAR_AT("@", ".--.-."),
+        CHAR_SLASH("/", "-..-."),
+        CHAR_EQUALS("=", "-...-"),
+        CHAR_DASH("-", "-....-"),
+        CHAR_DOT(".", "-.-.-.");
 
         private String ascii;
         private String morse;
@@ -59,23 +64,27 @@ public class CharInterpreter {
         }
 
         public void setMorse(String newMorse) {
-            ascii = newMorse;
+            morse = newMorse;
         }
 
         public CharList asciiToEnum(String ascii){
+            for(int i=0;i< values().length; i++){
+                if(values()[i].getAscii().equals(ascii)){
 
+                }
+            }
         }
 
         public String enumToAscii(CharList charInEnum){
-
+            return charInEnum.ascii;
         }
 
         public CharList morseToEnum(String morse){
 
         }
 
-        public String enumToMorse(String charInEnum){
-
+        public String enumToMorse(CharList charInEnum){
+            return charInEnum.morse;
         }
 
     }

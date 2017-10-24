@@ -22,7 +22,7 @@ public class UserInterface extends JFrame {
 
     public void setupUI() {
         setVisible(true);
-        //remove the jFrame
+        dispose();
         fileChooser=new JFileChooser();
         fileChooser.setDialogTitle("-- --- .-. .-. .. ..._-.-. --- -.. .");
         makeParser();
