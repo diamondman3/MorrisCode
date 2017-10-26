@@ -22,10 +22,9 @@ public class UserInterface extends JFrame {
 
     public static void main(String [] args) {
         UserInterface ui = new UserInterface();
-        ui.setVisible(true);
-        ui.dispose();
-        JFileChooser fileChooser=new JFileChooser();
-        fileChooser.setDialogTitle("-- --- .-. .-. .. ..._-.-. --- -.. .");
+        ui.setVisible(false);
+        ui.fileChooser=new JFileChooser();
+        ui.fileChooser.setDialogTitle("-- --- .-. .-. .. ..._-.-. --- -.. .");
         ui.makeParser();
         try{
             while(ui.parser.getReader().hasNext()){
