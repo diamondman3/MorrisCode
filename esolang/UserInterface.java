@@ -11,7 +11,7 @@ import java.io.File;
  */
 public class UserInterface extends JFrame {
 
-    public FileParser parser;
+    public FileParser parser=null;
     JFileChooser fileChooser;
     public UserInterface(){
         setSize(new Dimension(512, 128));
@@ -20,25 +20,26 @@ public class UserInterface extends JFrame {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
     }
 
-    public void setupUI() {
-        setVisible(true);
-        dispose();
-        fileChooser=new JFileChooser();
+    public static void main(String [] args) {
+        UserInterface ui = new UserInterface();
+        ui.setVisible(true);
+        ui.dispose();
+        JFileChooser fileChooser=new JFileChooser();
         fileChooser.setDialogTitle("-- --- .-. .-. .. ..._-.-. --- -.. .");
-        makeParser();
+        ui.makeParser();
         try{
-                while(parser.getReader().hasNext()){
-                    parser.doCommand();
-                }
+            while(ui.parser.getReader().hasNext()){
+                ui.parser.doCommand();
             }
+        }
         catch (NullPointerException e){/*nothing*/}
     }
 
     public void makeParser(){
         parser=new FileParser(fileChooser.getSelectedFile());
     }
-    public File getParser(){
-        return getParser();
+    public FileParser getParser(){
+        return parser;
     }
 
 }

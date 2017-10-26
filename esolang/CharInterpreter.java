@@ -59,31 +59,37 @@ public class CharInterpreter {
             setMorse(morse);
         }
 
-        public void setAscii(String newAscii) {
-            ascii = newAscii;
-        }
+        public void setAscii(String newAscii) {ascii = newAscii;}
 
-        public void setMorse(String newMorse) {
-            morse = newMorse;
-        }
+        public void setMorse(String newMorse) {morse = newMorse;}
 
-        public CharList asciiToEnum(String ascii){
+        public String getAscii(){return ascii;}
+
+        public String getMorse(){return morse;}
+
+        public static CharList asciiToEnum(String ascii){
             for(int i=0;i< values().length; i++){
                 if(values()[i].getAscii().equals(ascii)){
-
+                    return values()[i];
                 }
             }
+            return null;
         }
 
-        public String enumToAscii(CharList charInEnum){
+        public static String enumToAscii(CharList charInEnum){
             return charInEnum.ascii;
         }
 
-        public CharList morseToEnum(String morse){
-
+        public static CharList morseToEnum(String morse){
+           for(int i=0;i< values().length; i++){
+                if(values()[i].getMorse().equals(morse)){
+                    return values()[i];
+                }
+            }
+            return null;
         }
 
-        public String enumToMorse(CharList charInEnum){
+        public static String enumToMorse(CharList charInEnum){
             return charInEnum.morse;
         }
 

@@ -2,7 +2,7 @@ package esolang;
 
 import java.lang.reflect.Array;
 
-import static esolang.CharInterpreter.*;
+import esolang.CharInterpreter.*;
 import static java.lang.Integer.parseInt;
 import static java.lang.Integer.valueOf;
 
@@ -113,7 +113,7 @@ public class DataStore {
         String[] inputAscii;
         inputAscii=input.split(" ");
         for(int i=0; i<inputAscii.length; i++){
-            inputAscii[i]=enumToAscii(morseCodeToEnum(inputAscii[i]));
+            inputAscii[i]=CharList.enumToAscii(CharList.morseToEnum(inputAscii[i]));
         }
         int[] values=new int[inputAscii.length];
         for(int i =0; i<inputAscii.length; i++){

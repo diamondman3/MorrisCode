@@ -54,7 +54,7 @@ public class FileParser {
             String[] letters=commandArr[i].split(" ");
             String recomposed="";
             for(int j=0; j<letters.length; j++){
-                letters[j]=CharInterpreter.enumToAscii(CharInterpreter.morseCodeToEnum(letters[j]));
+                letters[j]=CharList.enumToAscii(CharList.morseToEnum(letters[j]));
                 recomposed+=letters[j];
             }
             commandArr[i]=recomposed;
