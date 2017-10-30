@@ -12,23 +12,22 @@ import java.io.File;
 public class UserInterface extends JFrame {
 
     public FileParser parser=null;
-    JFileChooser fileChooser;
+    final JFileChooser fileChooser;
     public UserInterface(){
         setSize(new Dimension(512, 128));
         setTitle("-- --- .-. .-. .. ..._-.-. --- -.. .");
         setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-    }
 
-    public static void main(String [] args) {
-        UserInterface ui = new UserInterface();
-        ui.setVisible(false);
-        ui.fileChooser=new JFileChooser();
-        ui.fileChooser.setDialogTitle("-- --- .-. .-. .. ..._-.-. --- -.. .");
-        ui.makeParser();
+        setVisible(false);
+        fileChooser=new JFileChooser(System.getProperty("user.home")+"/Desktop");
+        fileChooser.setVisible(true);
+        fileChooser.setDialogTitle("-- --- .-. .-. .. ..._-.-. --- -.. .");
+        int itNeedsThisToWorkIDontKnowWhy=fileChooser.showOpenDialog(null);
+        makeParser();
         try{
-            while(ui.parser.getReader().hasNext()){
-                ui.parser.doCommand();
+            while(parser.getReader().hasNext()){
+                parser.doCommand();
             }
         }
         catch (NullPointerException e){/*nothing*/}

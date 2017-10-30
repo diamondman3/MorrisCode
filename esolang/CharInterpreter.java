@@ -49,8 +49,10 @@ public class CharInterpreter {
         CHAR_SLASH("/", "-..-."),
         CHAR_EQUALS("=", "-...-"),
         CHAR_DASH("-", "-....-"),
-        CHAR_DOT(".", "-.-.-.");
+        CHAR_DOT(".", "-.-.-."),
+        CHAR_EMPTY("", "");
 
+        private static CharList charInEnum;
         private String ascii;
         private String morse;
 
@@ -77,6 +79,7 @@ public class CharInterpreter {
         }
 
         public static String enumToAscii(CharList charInEnum){
+            CharList.charInEnum = charInEnum;
             return charInEnum.ascii;
         }
 
@@ -90,6 +93,7 @@ public class CharInterpreter {
         }
 
         public static String enumToMorse(CharList charInEnum){
+            CharList.charInEnum = charInEnum;
             return charInEnum.morse;
         }
 
