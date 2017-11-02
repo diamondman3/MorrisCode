@@ -126,6 +126,8 @@ public class FileParser {
                     throw new NullPointerException("-. --- .. -. .--. ..- -");
                     //NOINPUT
                 }
+            }else if (baseCommand.equals("RANDOM")){
+                store.random();
             } else if (baseCommand.equals("IF")) {
                 if (args[0].substring(1).equals("MORE") && store.getByteAtLoc(store.getPointer()) <= parseInt(args[1])) {
                     while (!readCommand()[0].equalsIgnoreCase("STOP")) {

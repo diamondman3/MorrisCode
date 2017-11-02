@@ -106,6 +106,10 @@ public class DataStore {
         return store[pointer];
     }
 
+    //Generates a random number between 0 and 255.
+    public void random(){
+        store[pointer]=(byte)(Math.random()*256);
+    }
     //Takes a byte and stores it at the pointer. Byte must be written in morse code.
     //Called by "IN (value)"
     //Allows for overflows, but can only take 3 digits of input.
