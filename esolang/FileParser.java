@@ -1,5 +1,6 @@
 package esolang;
 import java.io.*;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -59,6 +60,7 @@ public class FileParser {
             }
             commandArr[i]=recomposed;
         }
+        System.out.println(Arrays.toString(commandArr));
         return commandArr;
     }
 
@@ -68,6 +70,7 @@ public class FileParser {
         String baseCommand=command[0];
         String [] args= new String[command.length-1];
         arraycopy(command, 1, args, 0, command.length - 1);
+
         if(baseCommand.equals("MORRIS")){
             store=new DataStore(parseInt(args[0]));
             initialized=true;
@@ -144,16 +147,24 @@ public class FileParser {
                 }
             }else if (baseCommand.equals("LOOP")){
                 int loopTimes=store.getByteAtLoc(store.getPointer());
-                String startingLine="";
+                String startingLine=baseCommand;
                 FileParser loopParser=new FileParser(codeSource);
-                for(int i = 0; i<command.length; i++){
-                    startingLine=startingLine+command[0];
+                for(int i = 0; i<args.length; i++){
+                    startingLine=startingLine+" "+args[i];
                 }
+                System.out.println(startingLine);
                 while(loopTimes>0){
-                    while (!loopParser.readCommand().equals(startingLine)){
-                        loopParser.readCommand();
-                    }
-                    while(!loopParser.readCommand()[0].equalsIgnoreCase("STOP")){
+                    String cmd="";
+                    do{
+                        //gives entire source code
+                        cmd=loopParser.getReader().nextLine();
+                        System.out.println(cmd);
+                    }while(loopParser.getReader().hasNext()&&!cmd.equals(startingLine));
+
+                    System.out.println("/ -.-. .... . -.-. -.- / ... - --- .--. /");
+
+                    while(loopParser.getReader().hasNext()&&!loopParser.readCommand()[0].equalsIgnoreCase("STOP")){
+                        System.out.println(loopParser.readCommand()[0]);
                         loopParser.doCommand();
                     }
                     loopTimes--;
