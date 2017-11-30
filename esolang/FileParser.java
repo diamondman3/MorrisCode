@@ -60,7 +60,6 @@ public class FileParser {
             }
             commandArr[i]=recomposed;
         }
-        System.out.println(Arrays.toString(commandArr));
         return commandArr;
     }
 
@@ -152,20 +151,24 @@ public class FileParser {
                 for(int i = 0; i<args.length; i++){
                     startingLine=startingLine+" "+args[i];
                 }
-                System.out.println(startingLine);
                 while(loopTimes>0){
                     String cmd="";
                     do{
-                        //gives entire source code
-                        cmd=loopParser.getReader().nextLine();
+                        cmd=Arrays.toString(loopParser.readCommand());
+                        //puts cmd in ascii without brackets or commas
+                        cmd=cmd.substring(1);
+                        cmd=cmd.substring(0, cmd.length()-1);
+                        while(cmd.contains(",")){
+                            cmd=cmd.substring(0, cmd.indexOf(","))+cmd.substring(cmd.indexOf(",")+1);
+                        }
                         System.out.println(cmd);
-                    }while(loopParser.getReader().hasNext()&&!cmd.equals(startingLine));
+                    }while(loopParser.getReader().hasNext()&& !cmd.equalsIgnoreCase(startingLine));
 
                     System.out.println("/ -.-. .... . -.-. -.- / ... - --- .--. /");
 
                     while(loopParser.getReader().hasNext()&&!loopParser.readCommand()[0].equalsIgnoreCase("STOP")){
-                        System.out.println(loopParser.readCommand()[0]);
                         loopParser.doCommand();
+                        //somehow only prints the baseCommand
                     }
                     loopTimes--;
                 }
