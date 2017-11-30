@@ -187,7 +187,7 @@ public class DataStore {
 
     //prints the output as an integer
     public void outInt(){
-        System.out.print(store[pointer]);
+        System.out.print(store[this.pointer]+"");
     }
 
     //executes the code, skips to the line with the "loop" command the number of times in the cell pointed to when called
