@@ -1,7 +1,7 @@
 package esolang;
 
-import java.lang.reflect.Array;
-
+import java.lang.*;
+import java.util.*;
 import esolang.CharInterpreter.*;
 import static java.lang.Integer.parseInt;
 import static java.lang.Integer.valueOf;
@@ -16,7 +16,7 @@ public class DataStore {
     //Byte used for the COPY/PASTE commands.
     public byte[] store;
     //all of the acutal data, length assigned at the constructor
-    private int pointer;
+    public int pointer;
     //location of data modified
 
     //Arguments split with underscores, not spaces
@@ -182,7 +182,7 @@ public class DataStore {
 
     //prints the location of the pointer
     public void showPointer(){
-        System.out.print(this.pointer);
+        System.out.print(this.pointer+"");
     }
 
     //prints the output as an integer

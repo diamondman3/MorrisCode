@@ -1,10 +1,7 @@
 package esolang;
 import java.io.*;
 import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 import static java.lang.Integer.parseInt;
 import static java.lang.System.*;
@@ -34,8 +31,13 @@ public class FileParser {
 
     public Scanner getReader(){return reader;}
     public String getFileName(){return codeSource.getName();}
-    public String[] readCommand(){
-        String command=reader.nextLine();
+    public void setStore(DataStore s){store=s;}
+    public DataStore getStore(){return store;}
+    public String[] readCommand() throws NoSuchElementException{
+        String command;
+        try {
+            command = reader.nextLine();
+        }catch (NoSuchElementException e){return new String[0];}
         String[] commandArr;
         if(command.length()==0){
             String[] errorArray=new String[1];
@@ -60,12 +62,16 @@ public class FileParser {
             }
             commandArr[i]=recomposed;
         }
+        System.out.println(Arrays.toString(commandArr));
         return commandArr;
     }
 
-    public void doCommand() throws NullPointerException {
+    public boolean doCommand() throws NullPointerException {
         System.out.println("doCommand started");
-        String[] command=readCommand();
+        String[] command;
+        try {
+            command = readCommand();
+        }catch (NullPointerException e){return false;}
         //takes the inputted command and splits into the command and the arguments
         String baseCommand=command[0];
         String [] args= new String[command.length-1];
@@ -146,38 +152,6 @@ public class FileParser {
                         readCommand();
                     }
                 }
-            }else if (baseCommand.equals("LOOP")){
-                int loopTimes=store.getByteAtLoc(store.getPointer());
-                String startingLine=baseCommand;
-                FileParser loopParser=new FileParser(codeSource);
-                loopParser.setInitializedForLoop(true);
-                for(int i = 0; i<args.length; i++){
-                    startingLine=startingLine+" "+args[i];
-                }
-                while(loopTimes>0){
-                    String cmd="";
-                    do{
-                        cmd=Arrays.toString(loopParser.readCommand());
-
-                        //puts cmd in ascii without brackets or commas from the array
-                        cmd=cmd.substring(1);
-                        cmd=cmd.substring(0, cmd.length()-1);
-                        while(cmd.contains(",")){
-                            cmd=cmd.substring(0, cmd.indexOf(","))+cmd.substring(cmd.indexOf(",")+1);
-                        }
-
-                        System.out.println(cmd);
-                    }while(loopParser.getReader().hasNext()&& !cmd.equalsIgnoreCase(startingLine));
-
-                    System.out.println("/ -.-. .... . -.-. -.- / ... - --- .--. /");
-
-                    while(loopParser.getReader().hasNext()&&!loopParser.readCommand()[0].equalsIgnoreCase("STOP")){
-                        System.out.print("in loop");
-                        loopParser.doCommand();
-                        //somehow only prints the commandArr as a string
-                    }
-                    loopTimes--;
-                }
             } else if (baseCommand.equals("IN")) {
                 out.println(".. -. .--. ..- - .- -... -.-- - .");//INPUTABYTE
                 String toInput = uInput.nextLine();
@@ -191,14 +165,50 @@ public class FileParser {
             }else if (baseCommand.equals("PASTE")){
                 store.paste();
             }else if (baseCommand.equals("POINTER")){
+                System.out.print("Pointer called");
                 store.showPointer();
             }else if (baseCommand.equals("OUTINT")) {
                 store.outInt();
+            }else if (baseCommand.equals("LOOP")) {
+                int loopTimes = store.getByteAtLoc(store.getPointer());
+                String startingLine = baseCommand;
+                FileParser loopParser = new FileParser(codeSource);
+                loopParser.setStore(store);
+                loopParser.setInitializedForLoop(true);
+                for (int i = 0; i < args.length; i++) {
+                    startingLine = startingLine + " " + args[i];
+                }
+                while (loopTimes > 0) {
+                    String cmd = "";
+                    do {
+                        cmd = Arrays.toString(loopParser.readCommand());
+
+                        //puts cmd in ascii without brackets or commas from the array
+                        cmd = cmd.substring(1);
+                        cmd = cmd.substring(0, cmd.length() - 1);
+                        while (cmd.contains(",")) {
+                            cmd = cmd.substring(0, cmd.indexOf(",")) + cmd.substring(cmd.indexOf(",") + 1);
+                        }
+
+                        System.out.println(cmd);
+                    } while (loopParser.getReader().hasNext() && !cmd.equalsIgnoreCase(startingLine));
+
+                    System.out.println("-.-. .... . -.-. -.- / ... - --- .--.");
+
+                    while (loopParser.getReader().hasNext() && !loopParser.readCommand()[0].equalsIgnoreCase("STOP")) {
+                        System.out.print("in loop");
+                        loopParser.doCommand();
+                        //somehow only prints the commandArr as a string
+                    }
+                    loopTimes--;
+                }
+                this.store=loopParser.getStore();
             }
         } else {
             //"Array not initialized"
             throw new NullPointerException(".- .-. .-. .- / -.-- -. --- / - .. -. .. - .. .- .-.. .. --.. . -..");
         }
+        return true;
     }
 
     public void setInitializedForLoop(boolean initialized){this.initialized=initialized;}
