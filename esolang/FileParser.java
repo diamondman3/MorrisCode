@@ -67,7 +67,6 @@ public class FileParser {
     }
 
     public boolean doCommand() throws NullPointerException {
-        //System.out.println("doCommand started");
         String[] command;
         try {
             command = readCommand();
@@ -77,6 +76,7 @@ public class FileParser {
         String [] args= new String[command.length-1];
         arraycopy(command, 1, args, 0, command.length - 1);
 
+        System.out.println(baseCommand);
         if(baseCommand.equals("MORRIS")){
             store=new DataStore(parseInt(args[0]));
             initialized=true;
@@ -169,11 +169,13 @@ public class FileParser {
                 store.outInt();
             }else if (baseCommand.equals("LOOP")) {
                 int loopTimes = store.getByteAtLoc(store.getPointer());
+                System.out.println("in loop");
                 String startingLine = baseCommand;
                 for (int i = 0; i < args.length; i++) {
                     startingLine = startingLine + " " + args[i];
                 }
                 while (loopTimes > 0) {
+                    System.out.println("loopTimes: " + loopTimes);
                     FileParser loopParser = new FileParser(codeSource);
                     loopParser.setStore(store);
                     loopParser.setInitializedForLoop(true);
@@ -181,21 +183,17 @@ public class FileParser {
 
                     //brings the parser to the line where loop is called without doing anything
                     do {
-                        cmd = Arrays.toString(loopParser.readCommand());
-
-                        //puts cmd in ascii without brackets or commas from the array
-                        cmd = cmd.substring(1);
-                        cmd = cmd.substring(0, cmd.length() - 1);
-                        while (cmd.contains(",")) {
-                            cmd = cmd.substring(0, cmd.indexOf(",")) + cmd.substring(cmd.indexOf(",") + 1);
-                        }
-
+                       cmd= parseCmdInLoop(loopParser);
                     } while (loopParser.getReader().hasNext() && !cmd.equalsIgnoreCase(startingLine));
+                    cmd=parseCmdInLoop(loopParser);
 
-
-                    while (loopParser.getReader().hasNext() && !loopParser.readCommand()[0].equalsIgnoreCase("STOP")) {
+                    boolean shouldBeInLoop=true;
+                    while (loopParser.getReader().hasNext()&&shouldBeInLoop){
+                        System.out.println("About to do command");
+                        if(cmd.equalsIgnoreCase("STOP")){shouldBeInLoop=false;}
                         loopParser.doCommand();
-                        //only works the last time
+                        //TODO: Now it repeats the first command.
+                        cmd=parseCmdInLoop(loopParser);
                     }
                     loopTimes--;
                     this.store=loopParser.getStore();
@@ -206,6 +204,18 @@ public class FileParser {
             throw new NullPointerException(".- .-. .-. .- / -.-- -. --- / - .. -. .. - .. .- .-.. .. --.. . -..");
         }
         return true;
+    }
+
+    public String parseCmdInLoop(FileParser loopParser){
+        String cmd = Arrays.toString(loopParser.readCommand());
+
+        //puts cmd in ascii without brackets or commas from the array
+        cmd = cmd.substring(1);
+        cmd = cmd.substring(0, cmd.length() - 1);
+        while (cmd.contains(",")) {
+            cmd = cmd.substring(0, cmd.indexOf(",")) + cmd.substring(cmd.indexOf(",") + 1);
+        }
+        return cmd;
     }
 
     public void setInitializedForLoop(boolean initialized){this.initialized=initialized;}

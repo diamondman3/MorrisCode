@@ -29,7 +29,7 @@
         <entry file="file://$PROJECT_DIR$/esolang/CharInterpreter.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="87" column="0" selection-start-line="87" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
+              <caret line="86" column="0" selection-start-line="86" selection-start-column="0" selection-end-line="86" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -50,8 +50,8 @@
       <file leaf-file-name="FileParser.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/esolang/FileParser.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.34519574">
-              <caret line="192" column="91" selection-start-line="192" selection-start-column="91" selection-end-line="192" selection-end-column="91" />
+            <state vertical-scroll-proportion="0.23182711">
+              <caret line="194" column="65" selection-start-line="194" selection-start-column="65" selection-end-line="194" selection-end-column="65" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -118,8 +118,8 @@
         <option value="$PROJECT_DIR$/esolang/UserInterface.java" />
         <option value="$PROJECT_DIR$/esolang/CharInterpreter.java" />
         <option value="$PROJECT_DIR$/README.TXT" />
-        <option value="$PROJECT_DIR$/esolang/FileParser.java" />
         <option value="$PROJECT_DIR$/esolang/DataStore.java" />
+        <option value="$PROJECT_DIR$/esolang/FileParser.java" />
       </list>
     </option>
   </component>
@@ -162,7 +162,8 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scratches" />
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -197,8 +198,7 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -611,7 +611,13 @@
       <option name="project" value="LOCAL" />
       <updated>1512516533618</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="Figured out that LOOP parsers don't read JUMP commands.">
+      <created>1513121751527</created>
+      <option name="number" value="00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1513121751527</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TodoView" selected-index="2">
@@ -635,7 +641,7 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32849163" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3083799" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3083799" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32849163" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21149144" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -643,7 +649,7 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -664,7 +670,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added some Start/stop commands, started on ui" />
     <MESSAGE value="Also this icon image" />
     <MESSAGE value="IT FUCKIN WORKS!" />
     <MESSAGE value="Made ADD and MULTIPLY work." />
@@ -689,40 +694,29 @@
     <MESSAGE value="made loop read everything the first time, but it won't doCommand() it all." />
     <MESSAGE value="tried to fix loop, realized pointer() and outint() are broken too." />
     <MESSAGE value="Fixing loop, it now prints &quot;-.-. .... . -.-. -.- / ... - --- .--.&quot; N times, but doesn't do the actual command that many times." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixing loop, it now prints &quot;-.-. .... . -.-. -.- / ... - --- .--.&quot; N times, but doesn't do the actual command that many times." />
+    <MESSAGE value="Figured out that LOOP parsers don't read JUMP commands." />
+    <option name="LAST_COMMIT_MESSAGE" value="Figured out that LOOP parsers don't read JUMP commands." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/esolang/FileParser.java</url>
-          <line>69</line>
+          <line>157</line>
           <properties />
-          <option name="timeStamp" value="11" />
+          <option name="timeStamp" value="21" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/esolang/FileParser.java</url>
-          <line>158</line>
+          <line>190</line>
           <properties />
-          <option name="timeStamp" value="12" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/esolang/FileParser.java</url>
-          <line>196</line>
-          <properties />
-          <option name="timeStamp" value="16" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/esolang/FileParser.java</url>
-          <line>89</line>
-          <properties />
-          <option name="timeStamp" value="19" />
+          <option name="timeStamp" value="27" />
         </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="20" />
+      <option name="time" value="28" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1120,7 +1114,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="369" column="25" selection-start-line="369" selection-start-column="25" selection-end-line="369" selection-end-column="25" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1128,7 +1121,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="762" column="0" selection-start-line="762" selection-start-column="0" selection-end-line="762" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1142,14 +1134,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/esolang/UserInterface.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/esolang/DataStore.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1160,18 +1144,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/esolang/UserInterface.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/esolang/CharInterpreter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="87" column="0" selection-start-line="87" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
+          <caret line="86" column="0" selection-start-line="86" selection-start-column="0" selection-end-line="86" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/esolang/FileParser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.34519574">
-          <caret line="192" column="91" selection-start-line="192" selection-start-column="91" selection-end-line="192" selection-end-column="91" />
+        <state vertical-scroll-proportion="0.23182711">
+          <caret line="194" column="65" selection-start-line="194" selection-start-column="65" selection-end-line="194" selection-end-column="65" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
