@@ -187,7 +187,6 @@ public class FileParser {
                     boolean shouldBeInLoop=true;
                     while (loopParser.getReader().hasNext()&&shouldBeInLoop){
                         loopParser.doCommand();
-                        //TODO: Now it repeats everything but the first command and only does the first command the last time.
                         if(cmd.equalsIgnoreCase("STOP")){shouldBeInLoop=false;}
                     }
                     loopTimes--;
