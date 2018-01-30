@@ -50,8 +50,8 @@
       <file leaf-file-name="FileParser.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/esolang/FileParser.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.66548043">
-              <caret line="190" column="125" selection-start-line="190" selection-start-column="125" selection-end-line="190" selection-end-column="125" />
+            <state vertical-scroll-proportion="0.8469751">
+              <caret line="193" column="36" selection-start-line="193" selection-start-column="36" selection-end-line="193" selection-end-column="36" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -623,7 +623,13 @@
       <option name="project" value="LOCAL" />
       <updated>1517268784563</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="So this is retarded, but it only does the first line of the loop the last time now. I could give up on fixing this and tell the user to just put &quot;START&quot; there instead...">
+      <created>1517351855081</created>
+      <option name="number" value="00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1517351855081</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TodoView" selected-index="2">
@@ -637,7 +643,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1696" height="1026" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32960895" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -650,7 +656,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3083799" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32849163" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21149144" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21149144" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -676,7 +682,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="IT FUCKIN WORKS!" />
     <MESSAGE value="Made ADD and MULTIPLY work." />
     <MESSAGE value="But they're not in DataStore." />
     <MESSAGE value="Tested more commands. Fixed error where 8 and 9's morses were switched." />
@@ -701,18 +706,11 @@
     <MESSAGE value="Fixing loop, it now prints &quot;-.-. .... . -.-. -.- / ... - --- .--.&quot; N times, but doesn't do the actual command that many times." />
     <MESSAGE value="Figured out that LOOP parsers don't read JUMP commands." />
     <MESSAGE value="Tried to fix LOOP: It actually just read the LOOP command repeatedly. Now it reads the line after the LOOP command repeatedly." />
-    <option name="LAST_COMMIT_MESSAGE" value="Tried to fix LOOP: It actually just read the LOOP command repeatedly. Now it reads the line after the LOOP command repeatedly." />
+    <MESSAGE value="So this is retarded, but it only does the first line of the loop the last time now. I could give up on fixing this and tell the user to just put &quot;START&quot; there instead..." />
+    <option name="LAST_COMMIT_MESSAGE" value="So this is retarded, but it only does the first line of the loop the last time now. I could give up on fixing this and tell the user to just put &quot;START&quot; there instead..." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/esolang/FileParser.java</url>
-          <line>188</line>
-          <properties />
-          <option name="timeStamp" value="27" />
-        </line-breakpoint>
-      </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
@@ -1162,8 +1160,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/esolang/FileParser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.66548043">
-          <caret line="190" column="125" selection-start-line="190" selection-start-column="125" selection-end-line="190" selection-end-column="125" />
+        <state vertical-scroll-proportion="0.8469751">
+          <caret line="193" column="36" selection-start-line="193" selection-start-column="36" selection-end-line="193" selection-end-column="36" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

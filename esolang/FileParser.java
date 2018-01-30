@@ -71,7 +71,7 @@ public class FileParser {
         try {
             command = readCommand();
         }catch (NullPointerException e){return false;}
-        System.out.println(Arrays.toString(command));
+        //System.out.println(Arrays.toString(command));
         //takes the inputted command and splits into the command and the arguments
         String baseCommand=command[0];
         String [] args= new String[command.length-1];
@@ -173,7 +173,7 @@ public class FileParser {
                 for (int i = 0; i < args.length; i++) {
                     startingLine = startingLine + " " + args[i];
                 }
-                while (loopTimes > 0) {
+                while (loopTimes > 1) {
                     FileParser loopParser = new FileParser(codeSource);
                     loopParser.setStore(store);
                     loopParser.setInitializedForLoop(true);
@@ -183,7 +183,6 @@ public class FileParser {
                     do {
                        cmd= parseCmdInLoop(loopParser);
                     } while (loopParser.getReader().hasNext() && !cmd.equalsIgnoreCase(startingLine));
-                    cmd=parseCmdInLoop(loopParser);
 
                     boolean shouldBeInLoop=true;
                     while (loopParser.getReader().hasNext()&&shouldBeInLoop){
