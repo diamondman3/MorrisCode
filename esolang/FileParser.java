@@ -10,8 +10,8 @@ import static esolang.CharInterpreter.*;
 public class FileParser {
 
     //What works: morris, right, left, up, down, out, cat, add, multiply, divide (integer), jump, in, if, copy, paste,
-    // pointer
-    //todo: What doesn't work: loop, outint
+    // pointer, loop
+    //todo: What doesn't work: printint
     File codeSource;
     Scanner reader;
     Scanner uInput;
@@ -19,7 +19,6 @@ public class FileParser {
     DataStore store;
     private boolean initialized;
 
-    boolean started;//if START is used.
     //initialized means that they called MORRIS and the array exists
     public FileParser(File codeSource){
         this.codeSource=codeSource;
@@ -71,7 +70,7 @@ public class FileParser {
         try {
             command = readCommand();
         }catch (NullPointerException e){return false;}
-        //System.out.println(Arrays.toString(command));
+        System.out.println(Arrays.toString(command));
         //takes the inputted command and splits into the command and the arguments
         String baseCommand=command[0];
         String [] args= new String[command.length-1];
@@ -139,15 +138,15 @@ public class FileParser {
                 store.random();
             } else if (baseCommand.equals("IF")) {
                 if (args[0].substring(1).equals("MORE") && store.getByteAtLoc(store.getPointer()) <= parseInt(args[1])) {
-                    while (!readCommand()[0].equalsIgnoreCase("STOP")) {
+                    while (!readCommand()[0].equalsIgnoreCase("ISTOP")) {
                         readCommand();
                     }
                 } else if (args[0].substring(1).equals("EQUALS") && store.getByteAtLoc(store.getPointer()) != parseInt(args[1])) {
-                    while (!readCommand()[0].equalsIgnoreCase("STOP")) {
+                    while (!readCommand()[0].equalsIgnoreCase("ISTOP")) {
                         readCommand();
                     }
                 } else if (args[0].substring(1).equals("LESS") && store.getByteAtLoc(store.getPointer()) >= parseInt(args[1])) {
-                    while (!readCommand()[0].equalsIgnoreCase("STOP")) {
+                    while (!readCommand()[0].equalsIgnoreCase("ISTOP")) {
                         readCommand();
                     }
                 }
@@ -165,8 +164,8 @@ public class FileParser {
                 store.paste();
             }else if (baseCommand.equals("POINTER")){
                 store.showPointer();
-            }else if (baseCommand.equals("OUTINT")) {
-                store.outInt();
+            }else if (baseCommand.equals("PRINTINT")) {
+                store.printInt();
             }else if (baseCommand.equals("LOOP")) {
                 int loopTimes = store.getByteAtLoc(store.getPointer());
                 String startingLine = baseCommand;
@@ -187,7 +186,7 @@ public class FileParser {
                     boolean shouldBeInLoop=true;
                     while (loopParser.getReader().hasNext()&&shouldBeInLoop){
                         loopParser.doCommand();
-                        if(cmd.equalsIgnoreCase("STOP")){shouldBeInLoop=false;}
+                        if(cmd.equalsIgnoreCase("LSTOP")){shouldBeInLoop=false;}
                     }
                     loopTimes--;
                     this.setStore(loopParser.getStore());

@@ -150,14 +150,14 @@ public class DataStore {
     //Called by OUT
 
     public void outputValue(){
-        int outInt;
+        int outAsInteger;
         if(store[pointer]<0){
-            outInt=(256+store[pointer]);
+            outAsInteger=(256+store[pointer]);
         }
         else {
-            outInt=(store[pointer]);
+            outAsInteger=(store[pointer]);
         }
-        System.out.print((char)outInt);
+        System.out.print((char)outAsInteger);
     }
 
     //Echos an input in Ascii.
@@ -174,24 +174,24 @@ public class DataStore {
         System.out.println(input);
     }
 
-    //Takes the current byte and makes it heldByte. Does not change the byte at pointer.
+    //Takes the current byte and makes it heldByte. Does not change the byte at pointer. Called by COPY
     public void copy(){heldByte=store[pointer];}
 
-    //does the opposite of copy
+    //does the opposite of copy, called by PASTE
     public void paste(){store[pointer]=heldByte;}
 
-    //prints the location of the pointer
+    //prints the location of the pointer, called by POINTER
     public void showPointer(){
         System.out.print(this.pointer+"");
     }
 
-    //prints the output as an integer
-    public void outInt(){
-        System.out.print(store[this.pointer]+"");
+    //prints the output as an integer, todo supposedly called by PRINTINT but it doesn't even read the command.
+    public void printInt(){
+        System.out.print((int)store[this.pointer]+"");
     }
 
-    //executes the code, skips to the line with the "loop" command the number of times in the cell pointed to when called
+    //executes the code, skips to the line with the "loop" command the number of times in the cell pointed to when called, ends at LSTOP
     public void loop(int loopsTotal){
-
+        //all in FileParser. It works, and I'd rather not tamper with it any more.
     }
 }
