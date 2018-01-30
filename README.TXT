@@ -29,7 +29,8 @@ POINTER: Prints the index of the cell which the pointer is at.
 CAT text: Takes the text (in morse code) and prints it to the console in ASCII.
 IN n: Takes a byte n (in morse code) from the console and sets the current cell to n.
 IF MORE/EQUALS/LESS n: If the current cell is more than/equals/is less than n, execute the code until the next STOP command.
-STOP: Ends an IF statement.
+ISTOP: Ends an IF statement.
 COPY: Stores the data at the current cell.
 PASTE: Takes COPIED data and pushes it to the current cell. Initialized at 0.
-LOOP: Does the commands until a STOP command as many times as the value at the pointer when the loop is started.
+LOOP: Does the commands until an LSTOP command as many times as the value at the pointer when the loop is started.
+LSTOP: Ends a LOOP statement.
