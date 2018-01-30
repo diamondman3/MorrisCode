@@ -29,7 +29,7 @@ public class FileParser {
         uInput=new Scanner(in);
     }
 
-    public Scanner getReader(){return reader;}
+    public Scanner getReader(){return this.reader;}
     public String getFileName(){return codeSource.getName();}
     public void setStore(DataStore s){store=s;}
     public DataStore getStore(){return store;}
@@ -71,12 +71,12 @@ public class FileParser {
         try {
             command = readCommand();
         }catch (NullPointerException e){return false;}
+        System.out.println(Arrays.toString(command));
         //takes the inputted command and splits into the command and the arguments
         String baseCommand=command[0];
         String [] args= new String[command.length-1];
         arraycopy(command, 1, args, 0, command.length - 1);
 
-        System.out.println(baseCommand);
         if(baseCommand.equals("MORRIS")){
             store=new DataStore(parseInt(args[0]));
             initialized=true;
@@ -169,13 +169,11 @@ public class FileParser {
                 store.outInt();
             }else if (baseCommand.equals("LOOP")) {
                 int loopTimes = store.getByteAtLoc(store.getPointer());
-                System.out.println("in loop");
                 String startingLine = baseCommand;
                 for (int i = 0; i < args.length; i++) {
                     startingLine = startingLine + " " + args[i];
                 }
                 while (loopTimes > 0) {
-                    System.out.println("loopTimes: " + loopTimes);
                     FileParser loopParser = new FileParser(codeSource);
                     loopParser.setStore(store);
                     loopParser.setInitializedForLoop(true);
@@ -189,14 +187,13 @@ public class FileParser {
 
                     boolean shouldBeInLoop=true;
                     while (loopParser.getReader().hasNext()&&shouldBeInLoop){
-                        System.out.println("About to do command");
-                        if(cmd.equalsIgnoreCase("STOP")){shouldBeInLoop=false;}
                         loopParser.doCommand();
-                        //TODO: Now it repeats the first command.
-                        cmd=parseCmdInLoop(loopParser);
+                        //TODO: Now it repeats everything but the first command and only does the first command the last time.
+                        if(cmd.equalsIgnoreCase("STOP")){shouldBeInLoop=false;}
                     }
                     loopTimes--;
-                    this.store=loopParser.getStore();
+                    this.setStore(loopParser.getStore());
+                    loopParser=null;
                 }
             }
         } else {
