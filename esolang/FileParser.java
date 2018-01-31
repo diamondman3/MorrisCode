@@ -23,7 +23,7 @@ public class FileParser {
         this.codeSource=codeSource;
         try {
             reader = new Scanner(codeSource);
-        }catch (Exception e){/*doing nothing is intentional*/}
+        }catch (Exception e){System.out.println("..-. .. .-.. . / -. --- - / ..-. --- ..- -. -..");}//File not found
         uInput=new Scanner(in);
     }
 
