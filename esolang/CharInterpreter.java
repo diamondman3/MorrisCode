@@ -22,7 +22,7 @@ public class CharInterpreter {
         CHAR_K("K", "-.-"),
         CHAR_L("L", ".-.."),
         CHAR_M("M", "--"),
-        CHAR_N("N", ".-"),
+        CHAR_N("N", "-."),
         CHAR_O("O", "---"),
         CHAR_P("P", ".--."),
         CHAR_Q("Q", "--.-"),

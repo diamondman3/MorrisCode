@@ -185,8 +185,8 @@ public class DataStore {
         System.out.print(this.pointer+"");
     }
 
-    //prints the output as an integer, todo supposedly called by PRINTINT but it doesn't even read the command.
-    public void printInt(){
+    //prints the output as an integer, called by OUTINT
+    public void outInt(){
         System.out.print((int)store[this.pointer]+"");
     }
 

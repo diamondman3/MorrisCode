@@ -10,8 +10,7 @@ import static esolang.CharInterpreter.*;
 public class FileParser {
 
     //What works: morris, right, left, up, down, out, cat, add, multiply, divide (integer), jump, in, if, copy, paste,
-    // pointer, loop
-    //todo: What doesn't work: printint
+    // pointer, loop, outint
     File codeSource;
     Scanner reader;
     Scanner uInput;
@@ -52,16 +51,17 @@ public class FileParser {
             commandArr[0]=command;
         }
         //convert the morse into Ascii to make clearer for source coder
-        for (int i=0; i<commandArr.length; i++){
-            String[] letters=commandArr[i].split(" ");
-            String recomposed="";
-            for(int j=0; j<letters.length; j++){
-                letters[j]=CharList.enumToAscii(CharList.morseToEnum(letters[j]));
-                recomposed+=letters[j];
+            for (int i=0; i<commandArr.length; i++){
+                String[] letters=commandArr[i].split(" ");
+                String recomposed="";
+                for(int j=0; j<letters.length; j++){
+                    letters[j]=CharList.enumToAscii(CharList.morseToEnum(letters[j]));
+                    recomposed+=letters[j];
+                }
+                //It's a horrible hack, I know.
+                commandArr[i]=recomposed;
             }
-            commandArr[i]=recomposed;
-        }
-       // System.out.println(Arrays.toString(commandArr));
+        //System.out.println(Arrays.toString(commandArr));
         return commandArr;
     }
 
@@ -70,7 +70,7 @@ public class FileParser {
         try {
             command = readCommand();
         }catch (NullPointerException e){return false;}
-        System.out.println(Arrays.toString(command));
+        //System.out.println(Arrays.toString(command));
         //takes the inputted command and splits into the command and the arguments
         String baseCommand=command[0];
         String [] args= new String[command.length-1];
@@ -156,7 +156,9 @@ public class FileParser {
                 store.inputValue(toInput);
             } else if (baseCommand.equals("OUT")) {
                 store.outputValue();
-            } else if (baseCommand.equals("CAT")) {
+            }else if (baseCommand.equals("OUTINT")) {
+                store.outInt();
+            }else if (baseCommand.equals("CAT")) {
                 store.cat(Arrays.toString(args));
             }else if (baseCommand.equals("COPY")) {
                 store.copy();
@@ -164,8 +166,6 @@ public class FileParser {
                 store.paste();
             }else if (baseCommand.equals("POINTER")){
                 store.showPointer();
-            }else if (baseCommand.equals("PRINTINT")) {
-                store.printInt();
             }else if (baseCommand.equals("LOOP")) {
                 int loopTimes = store.getByteAtLoc(store.getPointer());
                 String startingLine = baseCommand;
