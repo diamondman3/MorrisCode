@@ -26,7 +26,7 @@ MULTIPLY a b: Pop the values at cells a and b, multiply them, and push the produ
 DIVIDE a b: Pop the values at cells a and b, divide the value at a by the value at b, and push the quotient to the current cell. This is integer division.
 OUT: Prints the value at the pointer to the console in ASCII.
 POINTER: Prints the index of the cell which the pointer is at.
-CAT text: Takes the text (in morse code) and prints it to the console in ASCII.
+CAT text: Takes the text (in morse code) and prints it to the console in ASCII. Easy mode.
 IN n: Takes a byte n (in morse code) from the console and sets the current cell to n.
 IF MORE/EQUALS/LESS n: If the current cell is more than/equals/is less than n, execute the code until the next STOP command.
 ISTOP: Ends an IF statement.
