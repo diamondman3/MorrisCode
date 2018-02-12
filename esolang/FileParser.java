@@ -10,7 +10,7 @@ import static esolang.CharInterpreter.*;
 public class FileParser {
 
     //What works: morris, right, left, up, down, out, cat, add, multiply, divide (integer), jump, in, if, copy, paste,
-    // pointer, loop, outint
+    // pointer, loop, outint, goto
     File codeSource;
     Scanner reader;
     Scanner uInput;
@@ -180,18 +180,34 @@ public class FileParser {
 
                     //brings the parser to the line where loop is called without doing anything
                     do {
-                       cmd= parseCmdInLoop(loopParser);
+                        cmd = parseCmdInLoop(loopParser);
                     } while (loopParser.getReader().hasNext() && !cmd.equalsIgnoreCase(startingLine));
 
-                    boolean shouldBeInLoop=true;
-                    while (loopParser.getReader().hasNext()&&shouldBeInLoop){
+                    boolean shouldBeInLoop = true;
+                    while (loopParser.getReader().hasNext() && shouldBeInLoop) {
                         loopParser.doCommand();
-                        if(cmd.equalsIgnoreCase("LSTOP")){shouldBeInLoop=false;}
+                        if (cmd.equalsIgnoreCase("LSTOP")) {
+                            shouldBeInLoop = false;
+                        }
                     }
                     loopTimes--;
                     this.setStore(loopParser.getStore());
-                    loopParser=null;
+                    loopParser = null;
                 }
+                //I'm aware that GOTO is usually evil and makes your code illegible.
+                //But this is Morris Code.
+                //It's illegible anyways.
+                //Use GOTO to your heart's content.
+            }else if (baseCommand.equals("GOTO")){
+                int lineNum=store.getByteAtLoc(store.getPointer());
+                try {
+                    //makes a new scanner that starts at line 0, then skips to the line of the number in the current cell.
+                    reader = new Scanner(codeSource);
+                    for (int i = 0; i < lineNum; i++) {
+                        readCommand();
+                    }
+                }
+                catch (FileNotFoundException e){}
             }
         } else {
             //"Array not initialized"
