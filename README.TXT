@@ -1,6 +1,6 @@
 PROJECT TITLE: Morris Code
 PURPOSE OF PROJECT: Provide a useful* language for the old-fashioned.
-VERSION or DATE: 1.0.0 as of January 31, 2018
+VERSION or DATE: 1.0.1 as of February 12, 2018
 HOW TO START THIS PROJECT: Open the file and select a piece of code (in .txt format) to run.
 AUTHORS: diamondman3
 USER INSTRUCTIONS: Morris Code is a tape-based, 1-dimensional programming language similar to Brainfuck. Commands are each written on one line, with the arguments following them as follows:

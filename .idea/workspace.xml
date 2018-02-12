@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2ec70007-5775-4302-8aaf-43131b9e52bf" name="Default" comment="">
+    <list default="true" id="2ec70007-5775-4302-8aaf-43131b9e52bf" name="Default" comment="Implemented GOTO, because I'm a heretic. Added GOTO to README.">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.TXT" afterPath="$PROJECT_DIR$/README.TXT" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -62,8 +62,8 @@
       <file leaf-file-name="README.TXT" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/README.TXT">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.79232115">
-              <caret line="36" column="29" selection-start-line="36" selection-start-column="29" selection-end-line="36" selection-end-column="29" />
+            <state vertical-scroll-proportion="0.20767888">
+              <caret line="7" column="25" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -673,7 +673,13 @@
       <option name="project" value="LOCAL" />
       <updated>1518477141432</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="Implemented GOTO, because I'm a heretic. Added GOTO to README.">
+      <created>1518477472371</created>
+      <option name="number" value="00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1518477472371</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TodoView" selected-index="2">
@@ -726,7 +732,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="For single digits." />
     <MESSAGE value="Okay, now IN actually does work." />
     <MESSAGE value="Have IF working, but only if the statement is true." />
     <MESSAGE value="Actually have IF working now." />
@@ -751,7 +756,8 @@
     <MESSAGE value="OUTINT works, and I realized this because I screwed up the Morse for the letter N." />
     <MESSAGE value="Changed fileparser's filenot found response." />
     <MESSAGE value="Implemented GOTO, because I'm a heretic." />
-    <option name="LAST_COMMIT_MESSAGE" value="Implemented GOTO, because I'm a heretic." />
+    <MESSAGE value="Implemented GOTO, because I'm a heretic. Added GOTO to README." />
+    <option name="LAST_COMMIT_MESSAGE" value="Implemented GOTO, because I'm a heretic. Added GOTO to README." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1205,8 +1211,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/README.TXT">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.79232115">
-          <caret line="36" column="29" selection-start-line="36" selection-start-column="29" selection-end-line="36" selection-end-column="29" />
+        <state vertical-scroll-proportion="0.20767888">
+          <caret line="7" column="25" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="25" />
           <folding />
         </state>
       </provider>
