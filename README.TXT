@@ -35,3 +35,4 @@ COPY: Stores the data at the current cell.
 PASTE: Takes COPIED data and pushes it to the current cell. Initialized at 0.
 LOOP: Does the commands until an LSTOP command as many times as the value at the pointer when the loop is started.
 LSTOP: Ends a LOOP statement.
+GOTO: Be a heretic. Jump to the line of code equal to the value of the current cell, starting at 0.

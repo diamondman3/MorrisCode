@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2ec70007-5775-4302-8aaf-43131b9e52bf" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/esolang/FileParser.java" afterPath="$PROJECT_DIR$/esolang/FileParser.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.TXT" afterPath="$PROJECT_DIR$/README.TXT" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="MorrisCode.iws" />
@@ -47,14 +47,24 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FileParser.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="FileParser.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/esolang/FileParser.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7766498">
+            <state vertical-scroll-proportion="0.0">
               <caret line="203" column="122" selection-start-line="203" selection-start-column="122" selection-end-line="203" selection-end-column="122" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="README.TXT" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.TXT">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.79232115">
+              <caret line="36" column="29" selection-start-line="36" selection-start-column="29" selection-end-line="36" selection-end-column="29" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -113,11 +123,11 @@
         <option value="$PROJECT_DIR$/esolang/unsignedByte.java" />
         <option value="$PROJECT_DIR$/esolang/UnsignedByte.java" />
         <option value="$PROJECT_DIR$/esolang/MorrisCode.java" />
-        <option value="$PROJECT_DIR$/README.TXT" />
         <option value="$PROJECT_DIR$/esolang/CharInterpreter.java" />
         <option value="$PROJECT_DIR$/esolang/DataStore.java" />
         <option value="$PROJECT_DIR$/esolang/UserInterface.java" />
         <option value="$PROJECT_DIR$/esolang/FileParser.java" />
+        <option value="$PROJECT_DIR$/README.TXT" />
       </list>
     </option>
   </component>
@@ -657,7 +667,13 @@
       <option name="project" value="LOCAL" />
       <updated>1517423140273</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="Implemented GOTO, because I'm a heretic.">
+      <created>1518477141432</created>
+      <option name="number" value="00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1518477141432</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="TodoView" selected-index="2">
@@ -677,11 +693,11 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32960895" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31919643" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32849163" sideWeight="0.502445" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32849163" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3083799" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32849163" sideWeight="0.49755502" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3083799" sideWeight="0.49755502" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32849163" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21149144" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -710,7 +726,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="IN works." />
     <MESSAGE value="For single digits." />
     <MESSAGE value="Okay, now IN actually does work." />
     <MESSAGE value="Have IF working, but only if the statement is true." />
@@ -735,7 +750,8 @@
     <MESSAGE value="OUTINT, now PRINTINT isn't even read by the interpreter." />
     <MESSAGE value="OUTINT works, and I realized this because I screwed up the Morse for the letter N." />
     <MESSAGE value="Changed fileparser's filenot found response." />
-    <option name="LAST_COMMIT_MESSAGE" value="Changed fileparser's filenot found response." />
+    <MESSAGE value="Implemented GOTO, because I'm a heretic." />
+    <option name="LAST_COMMIT_MESSAGE" value="Implemented GOTO, because I'm a heretic." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1129,13 +1145,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.TXT">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.31641287">
-          <caret line="11" column="39" selection-start-line="11" selection-start-column="39" selection-end-line="11" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Sun/SDK/jdk/jre/lib/rt.jar!/java/lang/ClassLoader.class">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1186,11 +1195,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/esolang/FileParser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7766498">
+        <state vertical-scroll-proportion="0.0">
           <caret line="203" column="122" selection-start-line="203" selection-start-column="122" selection-end-line="203" selection-end-column="122" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.TXT">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.79232115">
+          <caret line="36" column="29" selection-start-line="36" selection-start-column="29" selection-end-line="36" selection-end-column="29" />
+          <folding />
         </state>
       </provider>
     </entry>
