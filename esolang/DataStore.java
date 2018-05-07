@@ -65,12 +65,14 @@ public class DataStore {
     }
 
     //Adds 1 to a byte at the location of pointer
+    //overflows at 127
     //Called by "UP"
     public void incrementByte(){
         store[pointer]+=1;
     }
 
     //Subtracts 1 from a byte at the location of pointer
+    //underflows at -128
     //Called by "DOWN"
     public void decrementByte(){
         store[pointer]-=1;
@@ -106,19 +108,23 @@ public class DataStore {
         return store[pointer];
     }
 
-    //Generates a random number between 0 and 255.
+    //Generates a random number between 0 and store[pointer].
+    //Called by RANDOM
     public void random(){
-        store[pointer]=(byte)(Math.random()*256);
+        store[pointer]=(byte)(((256+store[pointer])%256)*Math.random());
     }
+
     //Takes a byte and stores it at the pointer. Byte must be written in morse code.
     //Called by "IN (value)"
     //Allows for overflows, but can only take 3 digits of input.
     public boolean inputValue(String input) {
+        //cuts into single words
         String[] inputAscii;
         inputAscii=input.split(" ");
         for(int i=0; i<inputAscii.length; i++){
             inputAscii[i]=CharList.enumToAscii(CharList.morseToEnum(inputAscii[i]));
         }
+        //cuts into single characters
         int[] values=new int[inputAscii.length];
         for(int i =0; i<inputAscii.length; i++){
             try{
@@ -129,22 +135,18 @@ public class DataStore {
             }
         }
 
+        //changes multiple digits into one number
         String concatonateThisLittleBastard="";
         for(int i=0; i<values.length; i++){
             concatonateThisLittleBastard+=(values[i]+ "");
         }
+
+        //actually sets the data
         store[pointer]=(byte)parseInt(concatonateThisLittleBastard);
         return true;
     }
 
-    //Takes a byte at the pointer and checks it against the given value.
-    //Called by "IF (input) START", then ended with "STOP", or IF NOT (input) START.
-    public boolean parseIf(int input, boolean callIfTrue){
-        if (store[pointer]==(byte)input){
-            return true;
-        }
-        return false;
-    }
+    //IF method here deprecated, called in FileParser. It's inconsistent, but it works.
 
     //Takes a byte at the pointer and prints it. Don't have morse for all chars, so will be in uni.
     //Called by OUT
@@ -157,15 +159,22 @@ public class DataStore {
         else {
             outAsInteger=(store[pointer]);
         }
-        System.out.print((char)outAsInteger);
+        System.out.print((char) outAsInteger);
     }
 
     //Echos an input in Ascii.
     //Called by CAT (input)
+    //Only works with preset Morris code characters in CharList
     public void cat(String input){
         //all this is to make sure it only outputs the text
         while(input.contains("[0")){
             input=input.substring(0, input.indexOf("[0"))+ input.substring(input.indexOf("[0") + 2);
+        }
+        while(input.contains("[")){
+            input=input.substring(0, input.indexOf("["))+ input.substring(input.indexOf("[") + 1);
+        }
+        while(input.contains(",")){
+            input=input.substring(0, input.indexOf(","))+ input.substring(input.indexOf(",") + 1);
         }
         while(input.contains(", 0")){
             input=input.substring(0, input.indexOf(", 0"))+ " " + input.substring(input.indexOf(", 0") + 3);

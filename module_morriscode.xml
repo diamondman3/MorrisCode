@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_morriscode" default="compile.module.morriscode">
+  <dirname property="module.morriscode.basedir" file="${ant.file.module_morriscode}"/>
+  
+  <property name="module.jdk.home.morriscode" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.morriscode" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.morriscode" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.morriscode" value="-encoding windows-1252 -source 1.5 ${compiler.args}"/>
+  
+  <property name="morriscode.output.dir" value="${module.morriscode.basedir}/out/production/MorrisCode"/>
+  <property name="morriscode.testoutput.dir" value="${module.morriscode.basedir}/out/test/MorrisCode"/>
+  
+  <path id="morriscode.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="morriscode.module.production.classpath">
+    <path refid="${module.jdk.classpath.morriscode}"/>
+  </path>
+  
+  <path id="morriscode.runtime.production.module.classpath">
+    <pathelement location="${morriscode.output.dir}"/>
+  </path>
+  
+  <path id="morriscode.module.classpath">
+    <path refid="${module.jdk.classpath.morriscode}"/>
+    <pathelement location="${morriscode.output.dir}"/>
+  </path>
+  
+  <path id="morriscode.runtime.module.classpath">
+    <pathelement location="${morriscode.testoutput.dir}"/>
+    <pathelement location="${morriscode.output.dir}"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.morriscode">
+    <patternset refid="ignored.files"/>
+    <exclude name="out/**"/>
+    <exclude name="out/production/**"/>
+    <exclude name="out/production/MorrisCode/**"/>
+    <exclude name="out/production/MorrisCode/.idea/**"/>
+    <exclude name="out/production/MorrisCode/.idea/scopes/**"/>
+    <exclude name="out/production/MorrisCode/.idea/copyright/**"/>
+    <exclude name="out/production/MorrisCode/esolang/**"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.morriscode">
+    <patternset refid="excluded.from.module.morriscode"/>
+  </patternset>
+  
+  <path id="morriscode.module.sourcepath">
+    <dirset dir="${module.morriscode.basedir}/../../maxwelljm19">
+      <include name="MorrisCode2"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.morriscode" depends="compile.module.morriscode.production,compile.module.morriscode.tests" description="Compile module MorrisCode"/>
+  
+  <target name="compile.module.morriscode.production" depends="register.custom.compilers" description="Compile module MorrisCode; production classes">
+    <mkdir dir="${morriscode.output.dir}"/>
+    <javac destdir="${morriscode.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.morriscode}/javac">
+      <compilerarg line="${compiler.args.morriscode}"/>
+      <bootclasspath refid="morriscode.module.bootclasspath"/>
+      <classpath refid="morriscode.module.production.classpath"/>
+      <src refid="morriscode.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.morriscode"/>
+    </javac>
+    
+    <copy todir="${morriscode.output.dir}">
+      <fileset dir="${module.morriscode.basedir}">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.morriscode.tests" depends="register.custom.compilers,compile.module.morriscode.production" description="compile module MorrisCode; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.morriscode" description="cleanup module">
+    <delete dir="${morriscode.output.dir}"/>
+    <delete dir="${morriscode.testoutput.dir}"/>
+  </target>
+</project>

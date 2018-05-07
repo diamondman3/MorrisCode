@@ -52,7 +52,8 @@ public class CharInterpreter {
         CHAR_DOT(".", "-.-.-."),
         CHAR_EMPTY("", "");
 
-        private static CharList charInEnum;
+        private static CharList charInEnum;//I know it says it does nothing, but don't delete this.
+
         private String ascii;
         private String morse;
 
