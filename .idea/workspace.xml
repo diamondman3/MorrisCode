@@ -6,17 +6,10 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2ec70007-5775-4302-8aaf-43131b9e52bf" name="Default" comment="Added jar, debugged CAT and made RAND generate a random number based on store[pointer]">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/META-INF/MANIFEST.MF" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/artifacts/MorrisCode_jar.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/module_morriscode.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/morriscode.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/morriscode.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/esolang/CharInterpreter.java" afterPath="$PROJECT_DIR$/esolang/CharInterpreter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/esolang/DataStore.java" afterPath="$PROJECT_DIR$/esolang/DataStore.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/esolang/FileParser.java" afterPath="$PROJECT_DIR$/esolang/FileParser.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/esolang/UserInterface.java" afterPath="$PROJECT_DIR$/esolang/UserInterface.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+    <list default="true" id="2ec70007-5775-4302-8aaf-43131b9e52bf" name="Default" comment="">
+      <change type="DELETED" beforePath="C:\Users\maxwelljm19\MorrisCode2\module_morriscode.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\maxwelljm19\MorrisCode2\morriscode.properties" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\maxwelljm19\MorrisCode2\morriscode.xml" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="MorrisCode.iws" />
@@ -820,7 +813,13 @@
       <option name="project" value="LOCAL" />
       <updated>1525213297570</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="Added jar, debugged CAT and made RAND generate a random number based on store[pointer]">
+      <created>1525732394444</created>
+      <option name="number" value="00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1525732394444</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="TodoView" selected-index="2">
@@ -1460,33 +1459,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/morriscode.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="90" column="8" selection-start-line="90" selection-start-column="8" selection-end-line="90" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/module_morriscode.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="60" column="74" selection-start-line="60" selection-start-column="74" selection-end-line="60" selection-end-column="74" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/esolang/morrisCodeLogo.png">
       <provider selected="true" editor-type-id="images">
         <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/morriscode.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="2" column="47" selection-start-line="2" selection-start-column="47" selection-end-line="2" selection-end-column="47" />
-          <folding />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/esolang/MorrisCode.java">
