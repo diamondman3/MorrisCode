@@ -182,13 +182,14 @@ public class FileParser {
                 store.paste();
             } else if (baseCommand.equals("POINTER")) {
                 store.showPointer();
+                //LOOP INFINITE makes it endless, LOOP [anything else] makes it run store[pointer] times
             } else if (baseCommand.equals("LOOP")) {
                 int loopTimes = store.getByteAtLoc(store.getPointer());
                 String startingLine = baseCommand;
                 for (int i = 0; i < args.length; i++) {
                     startingLine = startingLine + " " + args[i];
                 }
-                while (loopTimes > 1) {
+                while (loopTimes > 1||startingLine.equalsIgnoreCase("LOOP INFINITE")) {
                     FileParser loopParser = new FileParser(codeSource);
                     loopParser.setStore(store);
                     loopParser.setInitializedForLoop(true);

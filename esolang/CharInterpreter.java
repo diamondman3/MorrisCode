@@ -50,6 +50,10 @@ public class CharInterpreter {
         CHAR_EQUALS("=", "-...-"),
         CHAR_DASH("-", "-....-"),
         CHAR_DOT(".", "-.-.-."),
+        CHAR_QUOTE("'", ".-..-."),
+        CHAR_COLON(":", "---..."),
+        CHAR_QUESTION("?", "..--.."),
+        //would add CHAR_PAREN but -.--.- is morse for both left and right parens
         CHAR_EMPTY("", "");
 
         private static CharList charInEnum;//I know it says it does nothing, but don't delete this.

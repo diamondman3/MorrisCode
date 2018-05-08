@@ -16,19 +16,20 @@ public class UserInterface extends JFrame {
 
     public UserInterface(){
 
-
+        //creates and draws the actual file chooser
         setSize(new Dimension(512, 128));
-        setTitle("-- --- .-. .-. .. ..._-.-. --- -.. .");
+        setTitle("-- --- .-. .-. .. ... -.-. --- -.. .");//MorrisCode
         setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setVisible(false);
 
         fileChooser=new JFileChooser(System.getProperty("user.home")+"/Desktop");
+        setIconImage(new ImageIcon(fileChooser.getClass().getResource("/morrisCodeLogo.png")).getImage());
+        //the icon image thing doesn't work
         fileChooser.setVisible(true);
-        fileChooser.setDialogTitle("-- --- .-. .-. .. ..._-.-. --- -.. .");
+        fileChooser.setDialogTitle("-- --- .-. .-. .. ... -.-. --- -.. .");//MorrisCode
         int itNeedsThisToWorkIDontKnowWhy=fileChooser.showOpenDialog(null);
         makeParser();
-        //creates and draws the actual file chooser
 
         //FileParser only reads one command at a time, read until the file is done.
         try{

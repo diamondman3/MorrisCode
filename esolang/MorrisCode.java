@@ -1,5 +1,7 @@
 package esolang;
 
+import java.awt.*;
+
 /**
  * Created by maxwelljm19 on 10/23/2017.
  */
