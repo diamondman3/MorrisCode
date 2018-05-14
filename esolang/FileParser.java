@@ -107,7 +107,11 @@ public class FileParser {
                 store.incrementByte();
             } else if (baseCommand.equals("DOWN")) {
                 store.decrementByte();
-            } else if (baseCommand.equals("SET")) {
+            } else if (baseCommand.equals("EXTEND")){
+                store.extend();
+            }else if (baseCommand.equals("RETRACT")){
+                store.retract();
+            }else if (baseCommand.equals("SET")) {
                 if (args.length > 0) {
                     store.setByte(parseInt(args[0]));
                 } else {
@@ -176,6 +180,8 @@ public class FileParser {
                 store.outInt();
             } else if (baseCommand.equals("CAT")) {
                 store.cat(Arrays.toString(args));
+            } else if (baseCommand.equals("FEED")) {
+                store.feed();
             } else if (baseCommand.equals("COPY")) {
                 store.copy();
             } else if (baseCommand.equals("PASTE")) {

@@ -108,6 +108,35 @@ public class DataStore {
         return store[pointer];
     }
 
+    //Increases the size of the array by 1
+    //Called by EXTEND
+    public void extend(){
+        byte[] temp=new byte[store.length+1];
+        int i;
+        for(i=0; i<store.length; i++){
+            temp[i]=store[i];
+        }
+        for(int j=i; j<temp.length; j++){
+            temp[j]=0;
+        }
+        store=temp;
+    }
+
+    //Decreses the size of the array by 1
+    //if pointer is at last index, decreases it by 1
+    //Deletes last value in array
+    //Called by RETRACT
+    public void retract(){
+        byte[] temp=new byte[store.length-1];
+        if(pointer==store.length-1){
+            decrementPointer();
+        }
+        for(int i=0; i<temp.length; i++){
+            temp[i]=store[i];
+        }
+        store=temp;
+    }
+
     //Generates a random number between 0 and store[pointer].
     //Called by RANDOM
     public void random(){
@@ -152,6 +181,7 @@ public class DataStore {
     //Called by OUT
 
     public void outputValue(){
+
         int outAsInteger;
         if(store[pointer]<0){
             outAsInteger=(256+store[pointer]);
@@ -160,6 +190,11 @@ public class DataStore {
             outAsInteger=(store[pointer]);
         }
         System.out.print((char) outAsInteger);
+    }
+
+    //prints the output as an integer, called by OUTINT
+    public void outInt(){
+        System.out.print((int)store[this.pointer]+"");
     }
 
     //Echos an input in Ascii.
@@ -180,7 +215,13 @@ public class DataStore {
             input=input.substring(0, input.indexOf(", 0"))+ " " + input.substring(input.indexOf(", 0") + 3);
         }
         input=input.substring(0, input.length()-1);
-        System.out.println(input);
+        System.out.print(input);
+    }
+
+    //Adds a line break. Just for convenience instead of having to CAT nothing every time.
+    //Called by FEED
+    public void feed(){
+        System.out.println("");
     }
 
     //Takes the current byte and makes it heldByte. Does not change the byte at pointer. Called by COPY
@@ -192,11 +233,6 @@ public class DataStore {
     //prints the location of the pointer, called by POINTER
     public void showPointer(){
         System.out.print(this.pointer+"");
-    }
-
-    //prints the output as an integer, called by OUTINT
-    public void outInt(){
-        System.out.print((int)store[this.pointer]+"");
     }
 
     //executes the code, skips to the line with the "loop" command the number of times in the cell pointed to when called, ends at LSTOP

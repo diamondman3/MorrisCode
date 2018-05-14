@@ -24,7 +24,7 @@ public class UserInterface extends JFrame {
         setVisible(false);
 
         fileChooser=new JFileChooser(System.getProperty("user.home")+"/Desktop");
-        setIconImage(new ImageIcon(fileChooser.getClass().getResource("/morrisCodeLogo.png")).getImage());
+//        setIconImage(new ImageIcon(fileChooser.getClass().getResource("/morrisCodeLogo.png")).getImage());
         //the icon image thing doesn't work
         fileChooser.setVisible(true);
         fileChooser.setDialogTitle("-- --- .-. .-. .. ... -.-. --- -.. .");//MorrisCode
