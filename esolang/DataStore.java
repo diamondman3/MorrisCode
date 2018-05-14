@@ -236,6 +236,7 @@ public class DataStore {
     }
 
     //executes the code, skips to the line with the "loop" command the number of times in the cell pointed to when called, ends at LSTOP
+    //deprecated
     public void loop(int loopsTotal){
         //all in FileParser. It works, and I'd rather not tamper with it any more.
     }
