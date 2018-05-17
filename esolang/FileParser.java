@@ -10,7 +10,7 @@ import static esolang.CharInterpreter.*;
 public class FileParser {
 
     //What works: morris, right, left, up, down, out, cat, add, multiply, divide (integer), jump, in, if, copy, paste,
-    // pointer, loop, outint, goto
+    // pointer, loop, outint, goto, feed, extend, retract
     File codeSource;
     Scanner reader;
     Scanner uInput;
@@ -207,9 +207,16 @@ public class FileParser {
                     } while (loopParser.getReader().hasNext() && !cmd.equalsIgnoreCase(startingLine));
 
                     boolean shouldBeInLoop = true;
+                    boolean inIf=false;
                     while (loopParser.getReader().hasNext() && shouldBeInLoop) {
                         loopParser.doCommand();
-                        if (cmd.equalsIgnoreCase("LSTOP")) {
+                        if(cmd.substring(0, 2).equalsIgnoreCase("IF")){
+                            inIf=true;
+                        }
+                        else if(cmd.equalsIgnoreCase("ISTOP")&&inIf){
+                            inIf=false;
+                        }
+                        else if (cmd.equalsIgnoreCase("LSTOP")&&!inIf) {
                             shouldBeInLoop = false;
                         }
                     }
