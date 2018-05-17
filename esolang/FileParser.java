@@ -9,8 +9,8 @@ import static esolang.CharInterpreter.*;
 
 public class FileParser {
 
-    //What works: morris, right, left, up, down, out, cat, add, multiply, divide (integer), jump, in, if, copy, paste,
-    // pointer, loop, outint, goto, feed, extend, retract
+    //What works: morris, right, left, up, down, out, cat, add, multiply, divide (integer), random, jump, in, if, copy, paste,
+    // pointer, loop, outint, goto, feed, extend, retract, comment
     File codeSource;
     Scanner reader;
     Scanner uInput;
@@ -75,8 +75,11 @@ public class FileParser {
             }
             //It's a horrible hack, I know.
             commandArr[i] = recomposed;
+
+
+            //Allows for comments, hopefully
+            if(commandArr[0].equals("COMMENT")){break;}
         }
-        //System.out.println(Arrays.toString(commandArr));
         return commandArr;
     }
 
@@ -93,6 +96,7 @@ public class FileParser {
         String[] args = new String[command.length - 1];
         arraycopy(command, 1, args, 0, command.length - 1);
 
+        if(baseCommand.equals("COMMENT")){return false;}
         if (baseCommand.equals("MORRIS")) {
             store = new DataStore(parseInt(args[0]));
             initialized = true;
