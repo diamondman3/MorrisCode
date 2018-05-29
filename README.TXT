@@ -7,7 +7,8 @@ USER INSTRUCTIONS: Morris Code is a tape-based, 1-dimensional programming langua
 
 If you've compiled it as a Jar and are running it outside of an IDE, use this command in the command line to start it:
 java -jar MorrisCode.jar
-I'm sorry, but I couldn't find a way to make the program open the command line itself.
+
+Otherwise, use the provided batch file after placing it in the same folder as the jar file.
 
 Command arg0 arg1 arg2...
 All text is written in Morse code, with a space separating characters and a slash separating words, as follows:
